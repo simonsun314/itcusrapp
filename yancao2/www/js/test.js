@@ -1164,6 +1164,7 @@ var registerNFC = function () {
       //myApp.alert(nfcEvent);
       //alert(nfcEvent.tag.sig);
       //registerNfcMime();
+      checkNfcAuthor();
     },
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
