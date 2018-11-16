@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-imei",
+        "scope": null,
+        "escapedName": "cordova-plugin-imei",
+        "name": "cordova-plugin-imei",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\itctag\\phonegap-nfc-master\\yancao2"
+    ]
+  ],
+  "_from": "cordova-plugin-imei@latest",
+  "_id": "cordova-plugin-imei@1.1.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-imei",
+  "_nodeVersion": "6.10.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-imei-1.1.0.tgz_1499850171118_0.21653106296434999"
+  },
+  "_npmUser": {
+    "name": "drsatan1",
+    "email": "simon.visser@flash.co.za"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-imei",
+    "scope": null,
+    "escapedName": "cordova-plugin-imei",
+    "name": "cordova-plugin-imei",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-imei/-/cordova-plugin-imei-1.1.0.tgz",
+  "_shasum": "529360dedf3826e08ad167de9959d999e4caeed3",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-imei",
+  "_where": "D:\\itctag\\phonegap-nfc-master\\yancao2",
+  "author": {
+    "name": "Simon Visser for FLASH"
+  },
+  "dependencies": {},
+  "description": "A cordova plugin to retrive IMEI reliably on Android devices.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "529360dedf3826e08ad167de9959d999e4caeed3",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-imei/-/cordova-plugin-imei-1.1.0.tgz"
+  },
+  "gitHead": "08a176a2a6f40098c8b43cd1d4db0ae7ffbf32af",
+  "homepage": "https://bitbucket.org/flashcore/cordova-plugin-imei#readme",
+  "keywords": [
+    "Cordova",
+    "Android",
+    "IMEI",
+    "device",
+    "info"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "drsatan1",
+      "email": "simon.visser@flash.co.za"
+    }
+  ],
+  "name": "cordova-plugin-imei",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://drsatan1@bitbucket.org/flashcore/cordova-plugin-imei.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.0"
+}

@@ -1,0 +1,54 @@
+<div class="pages">
+    <div class="page" data-page="detail">
+        <div class="navbar theme-teal">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="center">历史记录</div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="page-content custom-page-content-style">
+            <div class="content-block-inner">
+                <div class="card">
+                    <div class="card-header">
+                        <span>
+                            <i class="f7-icons color-indigo" style="padding-right: 10px;">list_fill</i><strong>扫描详情:</strong>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <div class="timeline">{{#each this reverse="true"}}
+                            <div class="timeline-item timeline-first-item" >
+                                <div class="timeline-item-divider"></div>
+                                <div class="timeline-item-content custom-timeline-item-content">
+                                    <div class="timeline-item-subtitle">{{DT}}</div>
+                                    <div class="timeline-item-subtitle">{{Addr}}</div>
+                                    <div class="timeline-item-subtitle">{{Status}}</div>
+                                    <hr style="width:400px; color:#bbb;">
+                                </div>
+                            </div>{{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar toolbar-bottom tabbar tabbar-labels theme-teal custome-tabbar">
+            <div class="toolbar-inner">
+                <a href="#" class="tab-link home-click">
+                    <i class="f7-icons">home</i>
+                    <span class="tabbar-label">首页</span>
+                </a>
+                <a href="#user" class="tab-link">
+                    <i class="f7-icons">person</i>
+                    <span class="tabbar-label">我的</span>
+                </a>
+            </div>
+        </div>
+        <!-- end of Bottom Toolbar-->
+    </div>
+</div>
+

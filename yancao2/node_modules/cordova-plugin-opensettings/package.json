@@ -1,0 +1,122 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-opensettings",
+        "scope": null,
+        "escapedName": "cordova-plugin-opensettings",
+        "name": "cordova-plugin-opensettings",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\itctag\\phonegap-nfc-master\\yancao2"
+    ]
+  ],
+  "_from": "cordova-plugin-opensettings@latest",
+  "_id": "cordova-plugin-opensettings@1.3.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-opensettings",
+  "_nodeVersion": "7.8.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-opensettings-1.3.0.tgz_1491014262559_0.48852030211128294"
+  },
+  "_npmUser": {
+    "name": "torworx",
+    "email": "torworx@gmail.com"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-opensettings",
+    "scope": null,
+    "escapedName": "cordova-plugin-opensettings",
+    "name": "cordova-plugin-opensettings",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-opensettings/-/cordova-plugin-opensettings-1.3.0.tgz",
+  "_shasum": "7784473624ae5211710320f0ce6fd751e774464b",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-opensettings",
+  "_where": "D:\\itctag\\phonegap-nfc-master\\yancao2",
+  "author": {
+    "name": "Yuan Tao",
+    "email": "towyuan@outlook.com"
+  },
+  "bugs": {
+    "url": "https://github.com/taoyuan/cordova-plugin-opensettings"
+  },
+  "contributors": [
+    {
+      "name": "Guy Rombaut",
+      "email": "admin@gsrweb.net"
+    },
+    {
+      "name": "guyromb"
+    },
+    {
+      "name": "deefactorial"
+    },
+    {
+      "name": "selahssea"
+    },
+    {
+      "name": "asmund1"
+    },
+    {
+      "name": "perlish"
+    }
+  ],
+  "cordova": {
+    "id": "cordova-plugin-opensettings",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Native settings opener for Cordova 4.0",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "7784473624ae5211710320f0ce6fd751e774464b",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-opensettings/-/cordova-plugin-opensettings-1.3.0.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=4.0.0"
+    }
+  ],
+  "gitHead": "3ac7295da11b6d6526d2c23b1c88dbf5ea51ef11",
+  "homepage": "https://github.com/taoyuan/cordova-plugin-opensettings#readme",
+  "keywords": [
+    "native-settings",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "torworx",
+      "email": "torworx@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-opensettings",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoyuan/cordova-plugin-opensettings.git"
+  },
+  "scripts": {},
+  "version": "1.3.0"
+}

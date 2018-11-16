@@ -1,0 +1,140 @@
+.background-image {
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+.img-responsive{
+    width: 100%;
+}
+
+.custom-col {
+    padding: 10px;
+}
+
+.toolbar-responsive{
+    width: 100%;
+    padding: 10px;
+}
+
+.toolbar-responsive .col-50{
+    text-align: center;
+}
+
+.f7-icons .badge {
+    position: static;
+}
+.custom-toolbar-icon {
+    width:24px;
+    height:24px;
+}
+
+.custome-row-style {
+    border-top: 2px solid #f2f2f2;
+    padding: 5px 20px;
+}
+
+.ent-logo {
+    float: left;
+    margin: 0 5px;
+    width: 60px;
+}
+
+.custom-result-style {
+    color: #CD5C5C;
+    font-size:35px;
+    font-weight: bold;
+}
+
+.item-after-word-break {
+    word-wrap: break-word;
+}
+
+.custom-page-content-style {
+    padding-top: 40px !important;
+    padding-bottom: 60px !important;
+    background-color: #f2f2f2;
+}
+
+.custom-item-media-icon {
+    min-width: 0 !important;
+}
+
+.custome-item-after-style {
+    color:#212121 !important;
+}
+.custome-item-text-style {
+    color:#212121 !important;
+    width: 70%;
+    text-align: right;
+}
+
+.custom-icon-style {
+    width: 25px;
+    padding-right: 10px !important;
+}
+
+.demo-card-header-pic .card-header {
+    height: 55vw;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+}
+
+.timeline-first-item:first-child{
+    padding-top: 10px;
+}
+
+.timeline-first-item:first-child .timeline-item-subtitle{
+    color:#212121;
+    font-weight: bold;
+}
+
+.custom-timeline-item-content {
+    color: #bbb;
+}
+
+.timeline-first-item:first-child .timeline-item-divider {
+    background: #2196f3;
+}
+
+.custome-tabbar {
+    height: 56px !important;
+}
+
+.tabbar-labels .tab-link {
+    padding:  4px !important;
+}
+
+.tabbar-labels .tab-link .tabbar-label {
+    margin-top: 0;
+}
+
+.custom-chip-media {
+    width: 32px;
+    height: 32px;
+    margin-right: -12px;
+    vertical-align: top;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    color: #fff;
+    -webkit-box-flex: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
+    font-size: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+

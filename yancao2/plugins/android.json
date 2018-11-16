@@ -1,0 +1,39 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-imei": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-opensettings": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "phonegap-nfc": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    }
+  },
+  "dependent_plugins": {}
+}

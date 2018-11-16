@@ -1,0 +1,145 @@
+<div class="pages">
+    <div class="page navbar-fixed toolbar-fixed" data-page="ResultInfo">
+        <div class="navbar theme-teal">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                    </a>
+                </div>
+                <div class="center">验证信息</div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="page-content custom-page-content-style">
+            <div class="content-block-inner">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="custom-result-style">{{Result}}</span>
+                            <div class="chip">
+                                <div class="chip-label" style="margin-right: 10px;">{{Tag}}</div>
+                                <div class="custom-chip-media bg-pink">
+                                    <i class="f7-icons">tags_fill</i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content-inner">
+                            <div class="list-block">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-link item-content detail-click">
+                                            <div class="item-media custom-item-media-icon"><i class="f7-icons color-lime">data_fill</i></div>
+                                            <div class="item-inner" style="padding-right: 16px;">
+                                                <div class="item-title"><strong>扫描记录：</strong>{{Count}}次</div>
+                                                <div class="chip" style="background-color: #ffc107">
+                                                    <div class="chip-label" style="padding-right: 5px;">点击详情</div>
+                                                    <div class="custom-chip-media">
+                                                        <i class="f7-icons">search_strong</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-cyan">time_fill</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>查询时间：</strong></div>
+                                            <div class="item-after custome-item-after-style">{{Date}}</div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-lightblue" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>查询地点：</strong></div>
+                                            <div class="item-text custome-item-text-style">{{Addr}}</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content" style="padding-top: 1px;">
+                        <div class="card demo-card-header-pic">
+                            <div style="background-image:url({{Icon}})" valign="bottom" class="card-header color-white no-border">
+                                <strong>{{Product}}</strong>
+                            </div>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li class="accordion-item"><a href="#" class="item-content item-link">
+                                    <div class="item-inner">
+                                        <div class="item-title">
+                                            <i class="f7-icons color-blue custom-icon-style">bag_fill</i>
+                                            <strong>产品信息</strong>
+                                        </div>
+                                    </div></a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <div class="row no-gutter custome-row-style">
+                                                <div class="col-35"><strong>产品描述：</strong></div>
+                                                <div class="col-65">{{PD}}</div>
+                                            </div>
+                                            <div class="row no-gutter custome-row-style">
+                                                <div class="col-35"><strong>产品标识：</strong></div>
+                                                <div class="col-65">{{SN}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="accordion-item"><a href="#" class="item-content item-link">
+                                    <div class="item-inner">
+                                        <div class="item-title">
+                                            <i class="f7-icons color-bluegray custom-icon-style">settings_fill</i>
+                                            <strong>生产信息</strong>
+                                        </div>
+                                    </div></a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <div class="row no-gutter custome-row-style">
+                                                <div class="col-35"><strong>生产日期：</strong></div>
+                                                <div class="col-65">{{ManufDate}}</div>
+                                            </div>
+                                            <div class="row no-gutter custome-row-style">
+                                                <div class="col-35"><strong>生产地址：</strong></div>
+                                                <div class="col-65">{{ManufAddr}}</div>
+                                            </div>
+                                            <div class="row no-gutter custome-row-style">
+                                                <div class="col-35"><strong>产地：</strong></div>
+                                                <div class="col-65">{{Origin}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><strong>{{Vendor}}</strong></div>
+                    <div class="card-content">
+                        <div class="content-block">
+                            <p><img src="{{VendorIcon}}" alt="logo" class="ent-logo">{{VD}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar toolbar-bottom tabbar tabbar-labels theme-teal custome-tabbar">
+            <div class="toolbar-inner">
+                <a href="#" class="tab-link home-click">
+                    <i class="f7-icons">home</i>
+                    <span class="tabbar-label">首页</span>
+                </a>
+                <a href="#user" class="tab-link">
+                    <i class="f7-icons">person</i>
+                    <span class="tabbar-label">我的</span>
+                </a>
+            </div>
+        </div>
+        <!-- end of Bottom Toolbar-->
+    </div>
+</div>

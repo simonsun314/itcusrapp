@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#00bcd4">
+    <!-- Your app title -->
+    <title>Bootup</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <div class="page" data-page="bootUp">
+                <div class="page-content background-image" style="background-image: url(img/bootup-picture.jpg)">
+                    <!--Test for loading index page-->
+                    <p style="text-align:center; margin-top:500px;"><font style='bold' color='green' size=5>请打开NFC，服务即将开始</font></p>
+                    <!--<p class="load-home button button-fill" style="margin-top:10px;">跳转按钮</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/test.js"></script>
+<script type="text/javascript" src="js/sha256.js"></script>
+<!--<script type="text/javascript" src="mymethod.js"></script>-->
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
