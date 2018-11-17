@@ -205,7 +205,7 @@ function onGeoError(error) {
   then it be 2 we just use 0,0
   */
   //delay and check permission loop for 10 seconds
-  /*
+  
     switch(error.code){
     case error.TIMEOUT :
         alert( " 连接超时，请重试 " );
@@ -216,7 +216,7 @@ function onGeoError(error) {
     case error.POSITION_UNAVAILABLE : 
         alert( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
         break;
-}*/
+}
   logMyFunc('位置获取错误: ' + error.code + '\n' + '消息: ' + error.message + '\n');
   checktimeofpos = 0;
   //posintervalID =  setInterval(checkGeoPermission,2000);
@@ -727,18 +727,79 @@ var nfcCallbk = function (nfcEvent) {
   //myApp.aler(nfcEvent);
   myApp.alert(nfcEvent.tag.sig);
   myApp.alert(nfcEvent.tag.uid);
+  var record = [
+      ndef.textRecord("hello, world")
+  ];
+
+  
   // myApp.alert("nfc");
   // myApp.alert(tag.id);
+  nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+    // alert("unregister success\n");
+  },
+    function (error) {
+      // alert("unregister failure \n"+error);
+    });
+
+
+    var failure = function(reason) {
+      myApp.alert("ERROR: " + reason);
+    };
+  
+    var lockSuccess = function() {
+      myApp.alert("Tag is now read only.");
+    };
+  
+    myApp.alert("read again");
+    setTimeout(function () {
+      nfc.readAuthTag(record,readAuthCallbk, lockSuccess, failure);
+    }, 3000);
+    
+  tagThinfilmReq();
+
+
+}
+
+var readAuthCallbk = function (nfcEvent) {
+
+  // if(nfcEvent==100)return;
+  tag = nfcEvent.tag;
+  //myApp.aler(nfcEvent);
+  myApp.alert(nfcEvent.tag.sig);
+  myApp.alert(nfcEvent.tag.uid);
+  // var record = [
+  //     ndef.textRecord("hello, world")
+  // ];
+
+  
+  // // myApp.alert("nfc");
+  // // myApp.alert(tag.id);
   // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
   //   // alert("unregister success\n");
   // },
   //   function (error) {
   //     // alert("unregister failure \n"+error);
   //   });
-  tagThinfilmReq();
+
+
+  //   var failure = function(reason) {
+  //     myApp.alert("ERROR: " + reason);
+  //   };
+  
+  //   var lockSuccess = function() {
+  //     myApp.alert("Tag is now read only.");
+  //   };
+  
+  //   myApp.alert("read again");
+  //   setTimeout(function () {
+  //     nfc.readAuthTag(readAuthCallbk,record, lockSuccess, failure);
+  //   }, 3000);
+    
+  // tagThinfilmReq();
 
 
 }
+
 
 var nfcmimeCallbk = function (nfcEvent) {
   // if(nfcEvent==100)return;
