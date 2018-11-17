@@ -728,7 +728,7 @@ var nfcCallbk = function (nfcEvent) {
   myApp.alert(nfcEvent.tag.sig);
   myApp.alert(nfcEvent.tag.uid);
   var record = [
-      ndef.textRecord("hello, world")
+      ndef.textRecord("AAAA")
   ];
 
   
