@@ -726,6 +726,7 @@ var nfcCallbk = function (nfcEvent) {
   tag = nfcEvent.tag;
   //myApp.aler(nfcEvent);
   myApp.alert(nfcEvent.tag.sig);
+  myApp.alert(nfcEvent.tag.uid);
   // myApp.alert("nfc");
   // myApp.alert(tag.id);
   // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
