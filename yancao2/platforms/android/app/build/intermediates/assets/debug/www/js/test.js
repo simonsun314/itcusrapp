@@ -718,28 +718,60 @@ var tag2ThinfilmReq = function () {
 
 }
 
+function parseHexString(str) { 
+  var result = [];
+  while (str.length >= 2) { 
+      result.push(parseInt(str.substring(0, 2), 16));
+      str = str.substring(2, str.length);
+  }
 
+  return result;
+}
+
+function bin2string(array){
+	var result = "";
+	for(var i = 0; i < array.length; ++i){
+		result+= (String.fromCharCode(array[i]));
+	}
+	return result;
+}
 
 var nfcCallbk = function (nfcEvent) {
 
-  // if(nfcEvent==100)return;
-  tag = nfcEvent.tag;
-  //myApp.aler(nfcEvent);
-  myApp.alert(nfcEvent.tag.sig);
-  myApp.alert(nfcEvent.tag.uid);
-  var record = [
-      ndef.textRecord("AAAA")
-  ];
-
-  
-  // myApp.alert("nfc");
-  // myApp.alert(tag.id);
   nfc.removeTagDiscoveredListener(nfcCallbk, function () {
     // alert("unregister success\n");
   },
     function (error) {
       // alert("unregister failure \n"+error);
     });
+  // if(nfcEvent==100)return;
+  tag = nfcEvent.tag;
+  //myApp.aler(nfcEvent);
+  myApp.alert(nfcEvent.tag.sig);
+  myApp.alert(nfcEvent.tag.uid);
+  myApp.alert(tag.errCode);
+  myApp.alert(tag.customercode);
+  myApp.alert(tag.commoditycode);
+  myApp.alert(tag.instancecode);
+  myApp.alert(tag.passprotstat);
+  
+
+  //first create itc log and ask pass
+
+  //pass auth to read itc again
+  var record = [
+      ndef.textRecord(bin2string(parseHexString("11223344")) )
+  ];
+
+  
+  // myApp.alert("nfc");
+  // myApp.alert(tag.id);
+  // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+  //   // alert("unregister success\n");
+  // },
+  //   function (error) {
+  //     // alert("unregister failure \n"+error);
+  //   });
 
 
     var failure = function(reason) {
@@ -754,7 +786,9 @@ var nfcCallbk = function (nfcEvent) {
     setTimeout(function () {
       nfc.readAuthTag(record,readAuthCallbk, lockSuccess, failure);
     }, 3000);
+  
     
+   
   tagThinfilmReq();
 
 
@@ -767,6 +801,7 @@ var readAuthCallbk = function (nfcEvent) {
   //myApp.aler(nfcEvent);
   myApp.alert(nfcEvent.tag.sig);
   myApp.alert(nfcEvent.tag.uid);
+
   // var record = [
   //     ndef.textRecord("hello, world")
   // ];
@@ -795,6 +830,8 @@ var readAuthCallbk = function (nfcEvent) {
   //     nfc.readAuthTag(readAuthCallbk,record, lockSuccess, failure);
   //   }, 3000);
     
+
+    //get next information 
   // tagThinfilmReq();
 
 
