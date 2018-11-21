@@ -59,12 +59,13 @@ public class ITCID extends BufCodec implements BufCodec.BufValidator {
 
     @Override
     public void validateCheckSum() throws InvalidChecksumException {
-        if(buf.length != ITCID_LENGTH) {
-            throw new InvalidChecksumException("invalid ITCID len");
-        }
-        if(bccChecksum(Arrays.copyOfRange(buf, 0, OFFSET_BCC)) != buf[OFFSET_BCC]) {
-            throw new InvalidChecksumException("invalid BCC");
-        }
+        throw new InvalidChecksumException("invalid ITCID len");
+//        if(buf.length != ITCID_LENGTH) {
+//            throw new InvalidChecksumException("invalid ITCID len");
+//        }
+//        if(bccChecksum(Arrays.copyOfRange(buf, 0, OFFSET_BCC)) != buf[OFFSET_BCC]) {
+//            throw new InvalidChecksumException("invalid BCC");
+//        }
     }
 
 
