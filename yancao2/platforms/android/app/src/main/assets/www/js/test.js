@@ -744,31 +744,178 @@ function bin2string(array){
 }
 
 
-// nfcCallbk
-// get itcID and start first time connection get session
-// do second time connection to upload itc head
-// do get auth password
-// and then do nfc read with auth
-var nfcCallbk = function (nfcEvent) {
-  nfc.removeTagDiscoveredListener(nfcCallbk, function () {
-    // alert("unregister success\n");
-  },
-    function (error) {
-      // alert("unregister failure \n"+error);
-    });
-  // if(nfcEvent==100)return;
-  tag = nfcEvent.tag;
-  //myApp.aler(nfcEvent);
-  myApp.alert(nfcEvent.tag.sig);
-  myApp.alert(nfcEvent.tag.uid);
-  myApp.alert(tag.errCode);
-  myApp.alert(tag.customercode);
-  myApp.alert(tag.commoditycode);
-  myApp.alert(tag.instancecode);
-  myApp.alert(tag.passprotstat);
-  
+//createSession
 
-  //first create itc log and ask pass
+var sessionRsp =  {
+    RecordID: "12345",
+    Time: "2018-12-02T11:11:00Z",
+    ITCID: "12345ABC",
+    UserID: "12938091",
+    Longitude: "100.00",
+    Latitude: "100.00",
+    Address: "上海市浦东新区",
+    Result: -1, 
+    Detail: "",
+};
+
+
+var session_begtime;
+var session_endtime;
+var urlVerifyServer = "http://47.101.167.84:3000";
+var tokenval = "34a51378e43dca83"
+var createSession = function () {
+  var xmlhttp;
+  var restfulapi = "/api/v1/vrs/records"
+  var targetUrladdr = urlVerifyServer+restfulapi;
+  logMyFunc("targeturl: " + targetUrladdr );
+
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.timeout = 5000;
+
+    xmlhttp.onreadystatechange = function () {
+      //myApp.alert(this.readyState);
+      //var DONE = this.DONE || 4;
+      if (this.readyState == 4) {
+        //myApp.alert(this.readyState);
+        //myApp.alert(this.response);
+        // myApp.alert(this.status);
+        if (this.status == 200) {
+          var tempdate1 = new Date();
+          sessiontime2 = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          logMyFunc("request tag my server:" + session_begtime + " " + session_endtime);
+          // myApp.alert(thintime1+"\n"+thintime2);
+          // myApp.alert(myservtime1+" "+myservtime2);
+          var sesRsp = this.response;
+          if (xmlhttp.getResponseHeader("Content-Type").toString().search('json') != -1) {
+
+            //myApp.alert(result2);
+            var obj = JSON.parse(sesRsp);
+            // testobj = obj;
+            sessionRsp.RecordID = obj.RecordID;
+            logMyFunc("session id:" + sessionRsp.RecordID);
+            sessionRsp.Latitude = obj.Location.GPS.Longitude;
+            // testobj.VendorIcon = obj.ProductInfo.VendorIcon;
+            // testobj.Icon = obj.ProductInfo.Icon;
+            // testobj.VendorIcon = "http://106.14.1.85:8591/static/img/jt-vendor.jpg";
+            // testobj.Icon = "http://106.14.1.85:8591/static/img/jt-product-1.jpg";
+            //myApp.alert(testobj.VendorIcon);
+            //myApp.alert(testobj.Icon);
+            // if (testobj.Result == "假酒") {
+            //   testobj.Tag = "未知"
+            //   testobj.Date = tag_date;
+            //   testobj.Vendor = "3J防伪";
+            //   testobj.VD = "3J防伪提醒您依法维权，杜绝假酒<br /><br /><br /><br />";
+            //   testobj.Product = "";
+            //   testobj.PD = "";
+            //   testobj.BatchNum = "";
+            //   testobj.SN = "";
+            //   testobj.ManufDate = "";
+            //   testobj.Origin = "";
+            //   testobj.ManufAddr = "";
+            //   testobj.ShelfLife = "";
+            //   testobj.VendorIcon = "img/icon.png";
+            //   testobj.Icon = 'img/jiajiu.jpeg';
+            // }
+            //myApp.alert("status: "+obj.status);
+            //  myApp.alert("addr: "+obj.Addr);
+            // myApp.alert("vendor: "+obj.ProductInfo.Vendor);
+            //myApp.alert(this.response);
+            //if(pageloadcont==0) result();
+            //else resultagain();
+            // pageloadcont++;
+            // result();
+            // regNFCinMid();
+            ITCD_verify();
+          } else {
+            myApp.hidePreloader();
+            // regNFCinMid();
+            //myApp.alert("网络出错,请确保网络打开");
+            showhint("网络出错,请确保网络打开");
+            logMyFunc("my tag server 网络错误代码2:" + this.status);
+            setTimeout(function () {
+              myApp.closeModal();
+              mainView.router.load({
+                url: 'index.html'
+              });
+            }, 2000);
+          }
+        } else {
+          myApp.hidePreloader();
+          // regNFCinMid();
+          //myApp.alert("网络出错,请确保网络打开");
+          showhint("网络出错,请确保网络打开");
+          logMyFunc("my tag server 网络错误代码:" + this.status);
+          setTimeout(function () {
+            myApp.closeModal();
+            mainView.router.load({
+              url: 'index.html'
+            });
+          }, 2000);
+        }
+      }
+    };
+
+    xmlhttp.ontimeout = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      //myApp.alert("访问超时,请确保网络打开");
+      showhint("访问超时,请确保网络打开");
+      logMyFunc("访问超时2" + e + "请确保网络打开");
+      setTimeout(function () {
+        myApp.closeModal();
+        mainView.router.load({
+          url: 'index.html'
+        });
+      }, 2000);
+    };
+    xmlhttp.onerror = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      // myApp.alert("访问错误2"+e+"请确保网络打开");
+      logMyFunc("访问错误2" + e + "请确保网络打开");
+      /* setTimeout(function () {
+         myApp.closeModal();
+       }, 2000);*/
+    };
+
+    xmlhttp.open('POST', targetUrladdr, true);
+    //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
+    //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
+    //  xmlhttp.setRequestHeader("Api-Key", ""); 
+    //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
+    //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
+    xmlhttp.setRequestHeader("token", tokenval); 
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+    //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
+    //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
+
+    var tempdate = new Date();
+    session_begtime = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
+    xmlhttp.send(JSON.stringify({
+
+      
+        ITCID: "12345ABC",
+        Location: {
+            GPS: {
+                Longitude: "100.00",
+                Latitude: "100.00"
+            },
+        },
+        // 2: Unknown ITCID, 3: Invalid Password,
+        // 4. Invalid PACK
+        Result: -1, 
+        Detail: "",
+    }));
+
+  }
+}
+
+var ITCD_verify = function(){
+  if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+    logMyFunc("upload itc id validate error");
+  }
 
   //pass auth to read itc again
   var record = [
@@ -798,10 +945,85 @@ var nfcCallbk = function (nfcEvent) {
     setTimeout(function () {
       nfc.readAuthTag(record,readAuthCallbk, lockSuccess, failure);
     }, 3000);
+}
+
+// nfcCallbk
+// get itcID and start first time connection get session
+// do second time connection to upload itc head
+// do get auth password
+// and then do nfc read with auth
+var nfcCallbk = function (nfcEvent) {
+  nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+    // alert("unregister success\n");
+  },
+    function (error) {
+      // alert("unregister failure \n"+error);
+    });
+  // if(nfcEvent==100)return;
+  tag = nfcEvent.tag;
+  logMyFunc("sig " + nfcEvent.tag.sig);
+  logMyFunc("uid " + nfcEvent.tag.uid);
+  logMyFunc("errorcode " + tag.errCode);
+  logMyFunc("customercode " + tag.customercode);
+  logMyFunc("commoditycode " + tag.commoditycode);
+  logMyFunc("instancecode " + tag.instancecode);
+  logMyFunc("passprotstat " + tag.passprotstat);
+  
+  
+  //first create itc log 
+// {
+//   "ITCID": "12345ABC",
+//   "Location": {
+//       "GPS": {
+//           "Longitude": "100.00",
+//           "Latitude": "100.00"
+//       }
+//   }
+//   // 2: Unknown ITCID, 3: Invalid Password,
+//   // 4. Invalid PACK
+//   "Result": 1, 
+//   "Detail": ""
+// }
+
+
+  createSession();
+  ITCD_verify();
+  // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+  //   logMyFunc("upload itc id validate error");
+  // }
+
+  // //pass auth to read itc again
+  // var record = [
+  //     ndef.textRecord(bin2string(parseHexString("11223344")) )
+  // ];
+
+  
+  // // myApp.alert("nfc");
+  // // myApp.alert(tag.id);
+  // // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+  // //   // alert("unregister success\n");
+  // // },
+  // //   function (error) {
+  // //     // alert("unregister failure \n"+error);
+  // //   });
+
+
+  //   var failure = function(reason) {
+  //     myApp.alert("ERROR: " + reason);
+  //   };
+  
+  //   var lockSuccess = function() {
+  //     myApp.alert("Tag is now read only.");
+  //   };
+  
+  //   myApp.alert("read again");
+  //   setTimeout(function () {
+  //     nfc.readAuthTag(record,readAuthCallbk, lockSuccess, failure);
+  //   }, 3000);
   
     
    
-  tagThinfilmReq();
+  // tagThinfilmReq();
 
 
 }
