@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 21 18:51:39 GMT+08:00 2018
+#Wed Nov 21 19:09:49 GMT+08:00 2018
 60.set=ASSET
 52.set=ASSET
 53.base=D\:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\assets\\debug

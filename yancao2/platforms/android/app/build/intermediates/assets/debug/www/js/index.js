@@ -266,6 +266,7 @@ myApp.onPageInit('home', function (page) {
     $$('.nfsviews').on('click',function () {
         ViewTonfsViews()
     });
+
     var mySwiper = myApp.swiper('.swiper-container', {
         pagination:'.swiper-pagination',
         paginationClickable: true,
@@ -274,6 +275,7 @@ myApp.onPageInit('home', function (page) {
         autoplay: 2500,
         autoplayDisableOnInteraction: false
     });
+    
 });
 
 myApp.onPageInit('home1', function (page) {
@@ -332,7 +334,7 @@ myApp.onPageInit('nfsviews', function (page) {
 
     };
     var anim = bodymovin.loadAnimation(animData);
-
+    setTimeout(logFunc, 500);
     $$('.home-click').on('click', function () {
         mainView.router.load({
             url: 'index.html'
