@@ -1,11 +1,29 @@
-.background-image {
-    max-width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position: top center;
-}
 .img-responsive{
     width: 100%;
+}
+.icon-responsive{
+    width: 60%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block
+}
+
+.demo-card-header-pic .card-header {
+    height: 40vw;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.demo-card-header-pic .card-content-padding .date{
+    color: #8e8e93;
+}
+
+hr.style-one {
+    border: 0;
+    height: 3px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    margin-top: 0px;
 }
 
 .custom-col {
@@ -24,10 +42,6 @@
 .f7-icons .badge {
     position: static;
 }
-.custom-toolbar-icon {
-    width:24px;
-    height:24px;
-}
 
 .custome-row-style {
     border-top: 2px solid #f2f2f2;
@@ -36,8 +50,8 @@
 
 .ent-logo {
     float: left;
-    margin: 0 5px;
-    width: 60px;
+    margin: 10px 10px;
+    max-width: 80px;
 }
 
 .custom-result-style {
@@ -63,11 +77,6 @@
 .custome-item-after-style {
     color:#212121 !important;
 }
-.custome-item-text-style {
-    color:#212121 !important;
-    width: 70%;
-    text-align: right;
-}
 
 .custom-icon-style {
     width: 25px;
@@ -75,7 +84,7 @@
 }
 
 .demo-card-header-pic .card-header {
-    height: 55vw;
+    height: 50vw;
     background-size: cover;
     background-position: center;
     padding-top: 10px;
@@ -103,7 +112,7 @@
 }
 
 .tabbar-labels .tab-link {
-    padding:  4px !important;
+    padding: 4px !important;
 }
 
 .tabbar-labels .tab-link .tabbar-label {

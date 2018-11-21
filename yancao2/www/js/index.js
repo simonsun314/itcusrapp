@@ -9,7 +9,7 @@ var myApp = new Framework7({
     uniqueHistoryIgnoreGetParameters: true,
     allowDuplicateUrls: true,
     reloadPages: true,
-    modalTitle: "<font style='color:green'>金坛软件友情提示：</font>",
+    modalTitle: "<font style='color:green'>友情提示：</font>",
     init: false,
 
     template7Data: {
@@ -125,6 +125,22 @@ var mySwiper = myApp.swiper('.swiper-container', {
 });
 
 //页面跳转resultInfo.html方法
+//如果是正品，跳转该页面并加载数据
+dataTrue={
+    Result: '正品',
+    Date: "16-Apr-17 16:24:03 CST",
+    Addr: "上海市浦东新区永泰路1757号",
+    Product: 'XXXXXXX'
+};
+function ViewToResultTure(data) {
+	myApp.hidePreloader();
+    mainView.router.load({
+        url: 'resultTrue.html',
+        context: data,
+	ignoreCache: true,
+    });
+}
+
 var result = function () {
     myApp.hidePreloader();
 
@@ -136,6 +152,27 @@ var result = function () {
     });
     //mainView.router.refreshPage() ;
 };
+//如果是仿造品，跳转该页面并加载数据
+dataFalse={
+    Result: '仿造',
+    Username:'User001,',
+    Date: "16-Apr-17 16:24:03 CST",
+    Addr: "上海市浦东新区永泰路1757号",
+    ITCID: 'XXXXXXX1',
+    WhyFalse:'XXXXXX2'
+};
+function ViewToResultFalse(data){
+    mainView.router.load({
+        url: 'resultFalse.html',
+        context: data
+    });
+}
+//加载靠一靠动画
+function ViewTonfsViews(){
+    mainView.router.load({
+        url: 'nfsviews.html'
+    });
+}
 
 
 //bootUp页面的测试按钮
@@ -143,6 +180,16 @@ $$('.load-home').on('click', function () {
     mainView.router.load({
         url: 'home.html'
     })
+});
+//home page事件(测试按钮)，添加了loading反馈，之后跳转到resultInfo.html
+$$('.resultTrue').on('click', function () {
+    ViewToResultTure(dataTrue)
+});
+$$('.resultFalse').on('click',function () {
+    ViewToResultFalse(dataFalse)
+});
+$$('.nfsviews').on('click',function () {
+    ViewTonfsViews()
 });
 
 //home page事件(测试按钮)，添加了loading反馈，之后跳转到resultInfo.html
@@ -154,6 +201,25 @@ $$('.result').on('click', function () {
      }, 2000);
      */
 });
+
+//ResultInfo 为正品的回调函数,页面切换至resultTrue.html
+myApp.onPageInit('resultTrue', function (page) {
+    var mySwiper = myApp.swiper('.swiper-container', {
+        pagination:'.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+
+    $$('.home-click').on('click', function () {
+        mainView.router.load({
+            url: 'index.html'
+        })
+    });
+});
+
 
 //ResultInfo page的回调函数,页面切换至detail.html
 myApp.onPageInit('ResultInfo', function (page) {
@@ -189,8 +255,28 @@ myApp.onPageInit('bootUp', function (page) {
 
 });
 
-
+//页面返回时，home page的回调函数
 myApp.onPageInit('home', function (page) {
+    $$('.resultTrue').on('click', function () {
+        ViewToResultTure(dataTrue)
+    });
+    $$('.resultFalse').on('click',function () {
+        ViewToResultFalse(dataFalse)
+    });
+    $$('.nfsviews').on('click',function () {
+        ViewTonfsViews()
+    });
+    var mySwiper = myApp.swiper('.swiper-container', {
+        pagination:'.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+});
+
+myApp.onPageInit('home1', function (page) {
     //myApp.alert(hellosimon);
     //myApp.alert(initNfcCount);
     //myApp.alert("你好");
@@ -224,6 +310,35 @@ myApp.onPageInit('detail', function (page) {
 });
 
 myApp.init();
+
+//ResultInfo为仿冒品的回调函数,页面切换至resultFalse.html
+myApp.onPageInit('resultFalse', function (page) {
+    $$('.home-click').on('click', function () {
+        mainView.router.load({
+            url: 'index.html'
+        })
+    });
+});
+
+//靠一靠的回调函数，页面切换至nfsviews.html
+myApp.onPageInit('nfsviews', function (page) {
+    var animData = {
+        wrapper: document.getElementById('nfsviews'),
+        animType: 'html',
+        loop: true,
+        prerender: true,
+        autoplay: true,
+        path: 'data/nfs.json'
+
+    };
+    var anim = bodymovin.loadAnimation(animData);
+
+    $$('.home-click').on('click', function () {
+        mainView.router.load({
+            url: 'index.html'
+        })
+    });
+});
 
 
 
