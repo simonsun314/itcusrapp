@@ -334,7 +334,7 @@ myApp.onPageInit('nfsviews', function (page) {
 
     };
     var anim = bodymovin.loadAnimation(animData);
-    setTimeout(logFunc, 500);
+    setTimeout(startNFC, 500);
     $$('.home-click').on('click', function () {
         mainView.router.load({
             url: 'index.html'

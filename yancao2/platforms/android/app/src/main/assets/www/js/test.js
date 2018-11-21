@@ -79,8 +79,16 @@ var countnfcreg = 0;
 var onGeoSuccess = function (position) {
   tag_lat = position.coords.latitude;
   tag_lon = position.coords.longitude;
-  /*
-      myApp.alert('Latitude: '          + position.coords.latitude          + '\n' +
+  
+      // myApp.alert('Latitude: '          + position.coords.latitude          + '\n' +
+      //       'Longitude: '         + position.coords.longitude         + '\n' +
+      //       'Altitude: '          + position.coords.altitude          + '\n' +
+      //       'Accuracy: '          + position.coords.accuracy          + '\n' +
+      //       'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+      //       'Heading: '           + position.coords.heading           + '\n' +
+      //       'Speed: '             + position.coords.speed             + '\n' +
+      //       'Timestamp: '         + position.timestamp                + '\n');
+  logMyFunc('Latitude: '          + position.coords.latitude          + '\n' +
             'Longitude: '         + position.coords.longitude         + '\n' +
             'Altitude: '          + position.coords.altitude          + '\n' +
             'Accuracy: '          + position.coords.accuracy          + '\n' +
@@ -88,7 +96,6 @@ var onGeoSuccess = function (position) {
             'Heading: '           + position.coords.heading           + '\n' +
             'Speed: '             + position.coords.speed             + '\n' +
             'Timestamp: '         + position.timestamp                + '\n');
-            */
   //getPos();
   registerNFC();
 }
@@ -237,7 +244,7 @@ function getPos() {
     */
   // myApp.alert(navigator.geolocation);
 
-  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
+  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 0, timeout: 3000, enableHighAccuracy: true });
 }
 
 
@@ -736,8 +743,13 @@ function bin2string(array){
 	return result;
 }
 
-var nfcCallbk = function (nfcEvent) {
 
+// nfcCallbk
+// get itcID and start first time connection get session
+// do second time connection to upload itc head
+// do get auth password
+// and then do nfc read with auth
+var nfcCallbk = function (nfcEvent) {
   nfc.removeTagDiscoveredListener(nfcCallbk, function () {
     // alert("unregister success\n");
   },
@@ -1014,8 +1026,10 @@ var checklogpermission = function () {
 };
 
 
-/*logFun is to set log file path*/
-var logFunc = function () {
+/*startNFC is to set log file path
+* register NFC listener
+*/
+var startNFC = function () {
 
   //myApp.alert("log request");
   //get UUID
@@ -1030,7 +1044,7 @@ var logFunc = function () {
       //  myApp.alert("error loading imei");
     }
   );
-  timeFunc1();
+  beginNFCListen();
   // window.logToFile.setLogfilePath('/3Japp/log.txt', function () {
   //   // logger configured successfully
   //   //  myApp.alert("this");  
@@ -1056,12 +1070,14 @@ var logMyFunc = function (x) {
   if (logfileok) {
 
     window.logToFile.debug(x);
+  }else{
+    myApp.alert(x);
   }
 }
 
 
 /*register NFC part*/
-var timeFunc1 = function () {
+var beginNFCListen = function () {
 
 
 
@@ -1084,7 +1100,7 @@ var timeFunc1 = function () {
     myApp.popover(popoverHTML, clickedLink,false);
     */
   logMyFunc("app init ok");
-  myApp.alert("init app");
+  // myApp.alert("init app");
   /*
   myApp.alert("init app");
   setTimeout(function () {
@@ -1259,16 +1275,19 @@ var registerNFC = function () {
 
   nfc.addTagDiscoveredListener(nfcCallbk,
     function () { // success callback
-       myApp.alert("Waiting for  tag");
+       myApp.alert("Waiting for tag");
       //myApp.alert(nfcEvent);
       //alert(nfcEvent.tag.sig);
       //registerNfcMime();
-      checkNfcAuthor();
+      // checkNfcAuthor();
     },
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
       logMyFunc("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
-      //registerNfcMime();
+      mainView.router.load({
+        url: 'index.html'
+      });
+      // registerNfcMime();
       /*
       setTimeout(function () {
          //myApp.closeModal();
