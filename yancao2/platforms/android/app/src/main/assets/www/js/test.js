@@ -745,7 +745,7 @@ function bin2string(array){
 
 
 //createSession
-
+var glb_recordid;
 var sessionRsp =  {
     RecordID: "12345",
     Time: "2018-12-02T11:11:00Z",
@@ -758,17 +758,21 @@ var sessionRsp =  {
     Detail: "",
 };
 
-
+// http://47.101.167.84:3000/api/v1/tgs/tags/12345ABC?token=34a51378e43dca83
+// http://47.101.167.84:3000/api/v1/vrs/records?token=34a51378e43dca83
 var session_begtime;
 var session_endtime;
 var urlVerifyServer = "http://47.101.167.84:3000";
-var tokenval = "34a51378e43dca83"
-var createSession = function () {
+var tokenval = "?token=34a51378e43dca83";
+
+
+var createSession = function (tag_itcid) {
   var xmlhttp;
   var restfulapi = "/api/v1/vrs/records"
-  var targetUrladdr = urlVerifyServer+restfulapi;
+  var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
+  logMyFunc("itcid: " + tag_itcid);
   logMyFunc("targeturl: " + targetUrladdr );
-
+  glb_recordid = "";
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.timeout = 5000;
@@ -793,8 +797,14 @@ var createSession = function () {
             var obj = JSON.parse(sesRsp);
             // testobj = obj;
             sessionRsp.RecordID = obj.RecordID;
-            logMyFunc("session id:" + sessionRsp.RecordID);
+            glb_recordid = sessionRsp.RecordID;
+            logMyFunc("session id:" + glb_recordid);
+            if(glb_recordid==""){
+              logMyFunc("Back Server Session Error");
+              //go index.htm
+            }
             sessionRsp.Latitude = obj.Location.GPS.Longitude;
+            logMyFunc("latitude :" + sessionRsp.Latitude);
             // testobj.VendorIcon = obj.ProductInfo.VendorIcon;
             // testobj.Icon = obj.ProductInfo.Icon;
             // testobj.VendorIcon = "http://106.14.1.85:8591/static/img/jt-vendor.jpg";
@@ -878,14 +888,14 @@ var createSession = function () {
          myApp.closeModal();
        }, 2000);*/
     };
-
+    // xmlhttp.open('GET', targetUrladdr, true);
     xmlhttp.open('POST', targetUrladdr, true);
     //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
     //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
     //  xmlhttp.setRequestHeader("Api-Key", ""); 
     //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
     //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
-    xmlhttp.setRequestHeader("token", tokenval); 
+    // xmlhttp.setRequestHeader("token", tokenval); 
     xmlhttp.setRequestHeader("Content-Type", "application/json");
 
     //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
@@ -896,11 +906,11 @@ var createSession = function () {
     xmlhttp.send(JSON.stringify({
 
       
-        ITCID: "12345ABC",
+        ITCID: tag_itcid,
         Location: {
             GPS: {
-                Longitude: "100.00",
-                Latitude: "100.00"
+                Longitude: tag_lon,
+                Latitude: tag_lat,
             },
         },
         // 2: Unknown ITCID, 3: Invalid Password,
@@ -908,13 +918,18 @@ var createSession = function () {
         Result: -1, 
         Detail: "",
     }));
-
+    // xmlhttp.send();
   }
 }
 
 var ITCD_verify = function(){
   if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
     logMyFunc("upload itc id validate error");
+    //upload data to server
+    //back to home
+    mainView.router.load({
+      url: 'index.html'
+  });
   }
 
   //pass auth to read itc again
@@ -986,8 +1001,8 @@ var nfcCallbk = function (nfcEvent) {
 // }
 
 
-  createSession();
-  ITCD_verify();
+  createSession(nfcEvent.tag.uid);
+  // ITCD_verify();
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   //   logMyFunc("upload itc id validate error");
   // }
