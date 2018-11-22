@@ -258,6 +258,15 @@ myApp.onPageInit('bootUp', function (page) {
 
 });
 
+
+var stopNFC = function(){
+    nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+        // alert("unregister success\n");
+    },function (error) {
+          // alert("unregister failure \n"+error);
+    });
+}
+
 //页面返回时，home page的回调函数
 myApp.onPageInit('home', function (page) {
     $$('.resultTrue').on('click', function () {
@@ -269,7 +278,12 @@ myApp.onPageInit('home', function (page) {
     $$('.nfsviews').on('click',function () {
         ViewTonfsViews()
     });
-
+    setTimeout(stopNFC, 500);
+    // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+    //     // alert("unregister success\n");
+    // },function (error) {
+    //       // alert("unregister failure \n"+error);
+    // });
     var mySwiper = myApp.swiper('.swiper-container', {
         pagination:'.swiper-pagination',
         paginationClickable: true,
@@ -281,38 +295,38 @@ myApp.onPageInit('home', function (page) {
     
 });
 
-myApp.onPageInit('home1', function (page) {
-    //myApp.alert(hellosimon);
-    //myApp.alert(initNfcCount);
-    //myApp.alert("你好");
+// myApp.onPageInit('home1', function (page) {
+//     //myApp.alert(hellosimon);
+//     //myApp.alert(initNfcCount);
+//     //myApp.alert("你好");
 
 
-    $$('.result-back').on('click', function () {
-        myApp.showPreloader();
-        setTimeout(function () {
-            myApp.hidePreloader();
-            result();
-        }, 2000); //添加了loading反馈，之后跳转到pagetwo.html
-    });
-    var mySwiper = myApp.swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        paginationClickable: true,
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: 2500,
-        autoplayDisableOnInteraction: false
-    });
-});
-//detail page的回调函数,页面切换至detail.html
-myApp.onPageInit('detail', function (page) {
-    $$('.home-click').on('click', function () {
-        mainView.router.load({
-            url: 'home.html'
-        })
-    });
-});
+//     $$('.result-back').on('click', function () {
+//         myApp.showPreloader();
+//         setTimeout(function () {
+//             myApp.hidePreloader();
+//             result();
+//         }, 2000); //添加了loading反馈，之后跳转到pagetwo.html
+//     });
+//     var mySwiper = myApp.swiper('.swiper-container', {
+//         pagination: '.swiper-pagination',
+//         nextButton: '.swiper-button-next',
+//         prevButton: '.swiper-button-prev',
+//         paginationClickable: true,
+//         spaceBetween: 30,
+//         centeredSlides: true,
+//         autoplay: 2500,
+//         autoplayDisableOnInteraction: false
+//     });
+// });
+// //detail page的回调函数,页面切换至detail.html
+// myApp.onPageInit('detail', function (page) {
+//     $$('.home-click').on('click', function () {
+//         mainView.router.load({
+//             url: 'home.html'
+//         })
+//     });
+// });
 
 myApp.init();
 
@@ -339,6 +353,7 @@ myApp.onPageInit('nfsviews', function (page) {
     var anim = bodymovin.loadAnimation(animData);
     setTimeout(startNFC, 500);
     $$('.home-click').on('click', function () {
+        
         mainView.router.load({
             url: 'index.html'
         })

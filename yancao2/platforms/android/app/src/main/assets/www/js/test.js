@@ -786,7 +786,7 @@ var createSession = function (tag_itcid) {
         // myApp.alert(this.status);
         if (this.status == 200) {
           var tempdate1 = new Date();
-          sessiontime2 = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          session_endtime = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
           logMyFunc("request tag my server:" + session_begtime + " " + session_endtime);
           // myApp.alert(thintime1+"\n"+thintime2);
           // myApp.alert(myservtime1+" "+myservtime2);
@@ -799,9 +799,13 @@ var createSession = function (tag_itcid) {
             sessionRsp.RecordID = obj.RecordID;
             glb_recordid = sessionRsp.RecordID;
             logMyFunc("session id:" + glb_recordid);
+            // glb_recordid = "";
             if(glb_recordid==""){
-              logMyFunc("Back Server Session Error");
+              logMyFunc("Create Server Session Error");
               //go index.htm
+              mainView.router.load({
+                url: 'index.html'
+              });
             }
             sessionRsp.Latitude = obj.Location.GPS.Longitude;
             logMyFunc("latitude :" + sessionRsp.Latitude);
@@ -922,16 +926,135 @@ var createSession = function (tag_itcid) {
   }
 }
 
+
+//send data to servers
+var wrongitc_rptbegin;
+var wrongitc_rptend;
+var wrong_itcid = function(){
+  var xmlhttp;
+  var restfulapi = "/api/v1/vrs/records/"+glb_recordid;
+  var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
+  logMyFunc("recid: " + glb_recordid);
+  logMyFunc("targeturl: " + targetUrladdr );
+
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.timeout = 5000;
+
+    xmlhttp.onreadystatechange = function () {
+      //myApp.alert(this.readyState);
+      //var DONE = this.DONE || 4;
+      if (this.readyState == 4) {
+        //myApp.alert(this.readyState);
+        //myApp.alert(this.response);
+        // myApp.alert(this.status);
+        if (this.status == 200) {
+          var tempdate1 = new Date();
+          wrongitc_rptend = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          logMyFunc("request tag my server:" + session_begtime + " " + session_endtime);
+          // myApp.alert(thintime1+"\n"+thintime2);
+          // myApp.alert(myservtime1+" "+myservtime2);
+          var sesRsp = this.response;
+          if (xmlhttp.getResponseHeader("Content-Type").toString().search('json') != -1) {
+
+            //myApp.alert(result2);
+            var obj = JSON.parse(sesRsp);
+            // testobj = obj;
+            // dataFalse.ITCID = obj.UserID;
+            // logMyFunc("server back user id:" + dataFalse.ITCID);
+           
+            ViewToResultFalse(dataFalse);
+            
+            
+          } else {
+            myApp.hidePreloader();
+            // regNFCinMid();
+            //myApp.alert("网络出错,请确保网络打开");
+            showhint("网络出错,请确保网络打开");
+            logMyFunc("my tag server 网络错误代码2:" + this.status);
+            setTimeout(function () {
+              myApp.closeModal();
+              ViewToResultFalse(dataFalse);
+            }, 2000);
+          }
+        } else {
+          myApp.hidePreloader();
+          // regNFCinMid();
+          //myApp.alert("网络出错,请确保网络打开");
+          showhint("网络出错,请确保网络打开");
+          logMyFunc("my tag server 网络错误代码:" + this.status);
+          setTimeout(function () {
+            myApp.closeModal();
+            ViewToResultFalse(dataFalse);
+          }, 2000);
+        }
+      }
+    };
+
+    xmlhttp.ontimeout = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      //myApp.alert("访问超时,请确保网络打开");
+      showhint("访问超时,请确保网络打开");
+      logMyFunc("访问超时2" + e + "请确保网络打开");
+      setTimeout(function () {
+        myApp.closeModal();
+        ViewToResultFalse(dataFalse);
+      }, 2000);
+    };
+    xmlhttp.onerror = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      // myApp.alert("访问错误2"+e+"请确保网络打开");
+      logMyFunc("访问错误2" + e + "请确保网络打开");
+      ViewToResultFalse(dataFalse);
+      /* setTimeout(function () {
+         myApp.closeModal();
+       }, 2000);*/
+    };
+    // xmlhttp.open('GET', targetUrladdr, true);
+    xmlhttp.open('PATCH', targetUrladdr, true);
+    //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
+    //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
+    //  xmlhttp.setRequestHeader("Api-Key", ""); 
+    //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
+    //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
+    // xmlhttp.setRequestHeader("token", tokenval); 
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+    //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
+    //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
+
+    var tempdate = new Date();
+    wrongitc_rptbegin = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
+    xmlhttp.send(JSON.stringify({
+
+
+        // 2: Unknown ITCID, 3: Invalid Password,
+        // 4. Invalid PACK
+        Result: 2, 
+        Detail: "",
+    }));
+    // xmlhttp.send();
+  }
+}
+
+var request_passwd = function(){
+  readsigfunc();
+}
+
 var ITCD_verify = function(){
   if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
     logMyFunc("upload itc id validate error");
     //upload data to server
-    //back to home
-    mainView.router.load({
-      url: 'index.html'
-  });
+    wrong_itcid();
+    return;
+    // logMyFunc("can I be here?");
   }
+  request_passwd();
+}
 
+var readsigfunc = function(){
   //pass auth to read itc again
   var record = [
       ndef.textRecord(bin2string(parseHexString("11223344")) )
@@ -1002,7 +1125,7 @@ var nfcCallbk = function (nfcEvent) {
 
 
   createSession(nfcEvent.tag.uid);
-  // ITCD_verify();
+  
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   //   logMyFunc("upload itc id validate error");
   // }
