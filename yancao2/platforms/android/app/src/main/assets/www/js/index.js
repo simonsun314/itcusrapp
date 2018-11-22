@@ -278,7 +278,7 @@ myApp.onPageInit('home', function (page) {
     $$('.nfsviews').on('click',function () {
         ViewTonfsViews()
     });
-    setTimeout(stopNFC, 500);
+    
     // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
     //     // alert("unregister success\n");
     // },function (error) {

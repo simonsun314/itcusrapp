@@ -840,7 +840,7 @@ var createSession = function (tag_itcid) {
             // pageloadcont++;
             // result();
             // regNFCinMid();
-            ITCD_verify();
+            ITCD_verify(tag_itcid);
           } else {
             myApp.hidePreloader();
             // regNFCinMid();
@@ -951,7 +951,7 @@ var wrong_itcid = function(){
         if (this.status == 200) {
           var tempdate1 = new Date();
           wrongitc_rptend = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
-          logMyFunc("request tag my server:" + session_begtime + " " + session_endtime);
+          logMyFunc("request tag my server:" + wrongitc_rptbegin + " " + wrongitc_rptend);
           // myApp.alert(thintime1+"\n"+thintime2);
           // myApp.alert(myservtime1+" "+myservtime2);
           var sesRsp = this.response;
@@ -1039,11 +1039,126 @@ var wrong_itcid = function(){
   }
 }
 
-var request_passwd = function(){
-  readsigfunc();
+
+//request_passwd
+//try to get passwd from server
+var getpsswdbegin;
+var getpsswdend;
+var request_passwd = function(tag_itcid){
+
+  var xmlhttp;
+  var restfulapi = "/api/v1/tgs/tags/"+tag_itcid;
+  var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
+
+  logMyFunc("targeturl: " + targetUrladdr );
+
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.timeout = 5000;
+
+    xmlhttp.onreadystatechange = function () {
+      //myApp.alert(this.readyState);
+      //var DONE = this.DONE || 4;
+      if (this.readyState == 4) {
+        //myApp.alert(this.readyState);
+        //myApp.alert(this.response);
+        // myApp.alert(this.status);
+        if (this.status == 200) {
+          var tempdate1 = new Date();
+          getpsswdend = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          logMyFunc("request tag my server:" + getpsswdbegin + " " + getpsswdend);
+          // myApp.alert(thintime1+"\n"+thintime2);
+          // myApp.alert(myservtime1+" "+myservtime2);
+          var sesRsp = this.response;
+          if (xmlhttp.getResponseHeader("Content-Type").toString().search('json') != -1) {
+
+            //myApp.alert(result2);
+            var obj = JSON.parse(sesRsp);
+            // testobj = obj;
+            // dataFalse.ITCID = obj.UserID;
+            logMyFunc("passwd:" + obj.Password);
+           
+            readsigfunc(obj.Password);
+            
+            
+          } else {
+            myApp.hidePreloader();
+            // regNFCinMid();
+            //myApp.alert("网络出错,请确保网络打开");
+            showhint("网络出错,请确保网络打开");
+            logMyFunc("my tag server 网络错误代码2:" + this.status);
+            setTimeout(function () {
+              myApp.closeModal();
+              ViewToResultFalse(dataFalse);
+            }, 2000);
+          }
+        } else {
+          myApp.hidePreloader();
+          // regNFCinMid();
+          //myApp.alert("网络出错,请确保网络打开");
+          showhint("网络出错,请确保网络打开");
+          logMyFunc("my tag server 网络错误代码:" + this.status);
+          setTimeout(function () {
+            myApp.closeModal();
+            ViewToResultFalse(dataFalse);
+          }, 2000);
+        }
+      }
+    };
+
+    xmlhttp.ontimeout = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      //myApp.alert("访问超时,请确保网络打开");
+      showhint("访问超时,请确保网络打开");
+      logMyFunc("访问超时2" + e + "请确保网络打开");
+      setTimeout(function () {
+        myApp.closeModal();
+        ViewToResultFalse(dataFalse);
+      }, 2000);
+    };
+    xmlhttp.onerror = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      // myApp.alert("访问错误2"+e+"请确保网络打开");
+      logMyFunc("访问错误2" + e + "请确保网络打开");
+      ViewToResultFalse(dataFalse);
+      /* setTimeout(function () {
+         myApp.closeModal();
+       }, 2000);*/
+    };
+    // xmlhttp.open('GET', targetUrladdr, true);
+    xmlhttp.open('GET', targetUrladdr, true);
+    //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
+    //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
+    //  xmlhttp.setRequestHeader("Api-Key", ""); 
+    //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
+    //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
+    // xmlhttp.setRequestHeader("token", tokenval); 
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+    //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
+    //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
+
+    var tempdate = new Date();
+    getpsswdbegin = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
+    // xmlhttp.send(JSON.stringify({
+
+
+    //     // 2: Unknown ITCID, 3: Invalid Password,
+    //     // 4. Invalid PACK
+    //     Result: 2, 
+    //     Detail: "",
+    // }));
+    xmlhttp.send();
+  }
+  
 }
 
-var ITCD_verify = function(){
+
+//verify itcid from nfc java plugin
+//report error if fail
+var ITCD_verify = function(tag_itcid){
   if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
     logMyFunc("upload itc id validate error");
     //upload data to server
@@ -1051,13 +1166,14 @@ var ITCD_verify = function(){
     return;
     // logMyFunc("can I be here?");
   }
-  request_passwd();
+  request_passwd(tag_itcid);
 }
 
-var readsigfunc = function(){
+var readsigfunc = function(passwd){
   //pass auth to read itc again
   var record = [
-      ndef.textRecord(bin2string(parseHexString("11223344")) )
+      // ndef.textRecord(bin2string(parseHexString("11223344")) )
+      ndef.textRecord(bin2string(parseHexString(passwd)))
   ];
 
   
