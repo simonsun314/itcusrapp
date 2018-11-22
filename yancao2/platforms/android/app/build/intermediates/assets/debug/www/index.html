@@ -23,9 +23,21 @@
         <div class="pages">
             <div class="page navbar-fixed toolbar-fixed" data-page="home">
                 <!-- top Navbar-->
-                <div class="navbar theme-teal">
+                <div class="navbar color-cls">
                     <div class="navbar-inner">
-                        <div class="center">My App</div>
+                        <div class="left">
+                            <a href="#" class="link icon-only">
+                                <i class="f7-icons">search</i>
+                            </a>
+                        </div>
+                        <div class="center searchbar-input">
+                            <input type="search" placeholder="搜索"><a href="#" class="searchbar-clear"></a>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="link icon-only">
+                                <i class="icon icon-bars"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- end of top Narbar-->
@@ -36,35 +48,33 @@
                         <!-- Slides wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
-                            <div class="swiper-slide"><img class="img-responsive" src="img/P001.jpg"></div>
-                            <div class="swiper-slide"><img class="img-responsive" src="img/P002.jpg"></div>
-                            <div class="swiper-slide"><img class="img-responsive" src="img/P003.jpg"></div>
+                            <div class="swiper-slide"><img class="img-responsive" src="img/IMG_1308.JPG"></div>
+                            <div class="swiper-slide"><img class="img-responsive" src="img/IMG_1306.JPG"></div>
+                            <div class="swiper-slide"><img class="img-responsive" src="img/IMG_1312.JPG"></div>
                         </div>
                         <!-- Pagination -->
                         <div class="swiper-pagination"></div>
                     </div>
                     <!-- end of Slider-->
                     <div class="row">
-                        <div class="col-25 resultTrue"><img class="icon-responsive" src="img/category.svg"><p style="text-align: center">XXXX</p></div>
-                        <div class="col-25 resultFalse"><img class="icon-responsive" src="img/map.svg"><p style="text-align: center">XXXX</p></div>
-                        <div class="col-25"><img class="icon-responsive" src="img/help.svg"><p style="text-align: center">XXXX</p></div>
-                        <div class="col-25 nfsviews"><img class="icon-responsive" src="img/nfc.svg"><p style="text-align: center">靠一靠</p></div>
+                        <div class="col-25 resultTrue"><img class="icon-responsive" src="img/icon1.svg"><p style="text-align: center">XXXX</p></div>
+                        <div class="col-25 resultFalse"><img class="icon-responsive" src="img/icon2.svg"><p style="text-align: center">XXXX</p></div>
+                        <div class="col-25"><img class="icon-responsive" src="img/icon3.svg"><p style="text-align: center">XXXX</p></div>
+                        <div class="col-25 nfsviews"><img class="icon-responsive" src="img/icon4.svg"><p style="text-align: center">靠一靠</p></div>
                     </div>
                     <hr class="style-one" />
                     <div class="row">
                         <div class="card demo-card-header-pic">
-                            <div style="background-image:url(img/P001.jpg)" class="card-header align-items-flex-end">Journey To Mountains</div>
+                            <div style="background-image:url(img/pic001.jpg)" class="card-header align-items-flex-end">上海卷烟厂</div>
                             <div class="card-content card-content-padding">
-                                <p class="date">Posted on January 21, 2015</p>
                                 <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
                             </div>
                             <!--<div class="card-footer"><a href="#" class="link">Like</a><a href="#" class="link">Read more</a></div>-->
                         </div>
 
                         <div class="card demo-card-header-pic">
-                            <div style="background-image:url(img/P003.jpg)" class="card-header align-items-flex-end">Lorem Ipsum</div>
+                            <div style="background-image:url(img/pic002.jpg)" class="card-header align-items-flex-end">上海卷烟厂</div>
                             <div class="card-content card-content-padding">
-                                <p class="date">Posted on January 21, 2015</p>
                                 <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
                             </div>
                             <!--<div class="card-footer"><a href="#" class="link">Like</a><a href="#" class="link">Read more</a></div>-->
@@ -72,15 +82,23 @@
                     </div>
                 </div>
                 <!-- Bottom Toolbar-->
-                <div class="toolbar toolbar-bottom tabbar tabbar-labels theme-teal custome-tabbar">
+                <div class="toolbar toolbar-bottom tabbar tabbar-labels color-grey custome-tabbar">
                     <div class="toolbar-inner">
+                        <a href="#" class="tab-link active">
+                            <i class="f7-icons color-toolbar">home_fill</i>
+                            <span class="tabbar-label color-toolbar">首页</span>
+                        </a>
                         <a href="#" class="tab-link">
-                            <i class="f7-icons">home</i>
-                            <span class="tabbar-label">首页</span>
+                            <i class="f7-icons color-toolbar">bag_fill</i>
+                            <span class="tabbar-label color-toolbar">更多</span>
+                        </a>
+                        <a href="#" class="tab-link">
+                            <i class="f7-icons color-toolbar">chat_fill</i>
+                            <span class="tabbar-label color-toolbar">消息</span>
                         </a>
                         <a href="#user" class="tab-link">
-                            <i class="f7-icons">person</i>
-                            <span class="tabbar-label">我的</span>
+                            <i class="f7-icons color-toolbar">person_fill</i>
+                            <span class="tabbar-label color-toolbar">我的</span>
                         </a>
                     </div>
                 </div>
@@ -91,7 +109,7 @@
 </div>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/framework7.min.js"></script>
-<script type="text/javascript" src="js/lottie.min.js"></script>
+<script type="text/javascript" src="js/lottie.js"></script>
 <!-- Path to your app js-->
 <script type="text/javascript" src="js/test.js"></script>
 <script type="text/javascript" src="js/sha256.js"></script>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 icon3.svg 页-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1.58175in" height="1.58175in"
+		viewBox="0 0 113.886 113.886" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#dd0032;stroke:#dd0032;stroke-width:0.25}
+		.st2 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.146484}
+		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group27-1" transform="translate(0.25,-0.25)" v:mID="27" v:groupContext="group">
+			<title>工作表.27</title>
+			<g id="shape21-2" v:mID="21" v:groupContext="shape">
+				<title>圆形.21</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<path d="M0 57.19 A56.6929 56.6929 0 0 1 113.39 57.19 A56.6929 56.6929 0 1 1 0 57.19 Z" class="st1"/>
+			</g>
+			<g id="group22-4" transform="translate(26.0652,-26.3445)" v:mID="22" v:groupContext="group">
+				<title>工作表.22</title>
+				<g id="shape23-5" v:mID="23" v:groupContext="shape">
+					<title>工作表.23</title>
+					<path d="M61.26 83.09 A30.595 30.595 -180 0 0 0.29 80.06 A3.27569 3.27569 -180 0 0 0 81.42 L0 89.24 A3.27569
+								 3.27569 -180 0 0 3.28 92.51 L6.09 92.51 A3.27569 3.27569 -180 0 0 9.37 89.24 L9.37 81.42 A3.27569
+								 3.27569 -180 0 0 6.09 78.15 L3.83 78.15 A27.2865 27.2865 0 0 1 57.52 78.15 L54.97 78.15 A3.27569
+								 3.27569 -180 0 0 51.69 81.42 L51.69 89.24 A3.27569 3.27569 -180 0 0 54.97 92.51 L56.31 92.51 A27.2702
+								 27.2702 0 0 1 35.62 109.95 A1.63785 1.63785 -180 0 0 35.23 110.12 A5.07733 5.07733 -180 1 0 35.49
+								 113.13 A1.63785 1.63785 -180 0 0 35.92 113.13 L36.21 113.13 A30.5458 30.5458 -180 0 0 60.03 91.66
+								 A3.27569 3.27569 -180 0 0 61.11 89.24 L61.11 85.96 C61.21 85.06 61.26 84.08 61.26 83.09 ZM6.08 81.46
+								 L6.08 89.24 L3.21 89.24 L3.21 83.77 A1.63785 1.63785 -180 0 0 3.36 83.09 C3.36 82.52 3.36 81.98
+								 3.44 81.46 L6.09 81.46 L6.08 81.46 ZM30.53 113.89 A1.80163 1.80163 0 1 1 32.33 112.08 A1.80163 1.80163
+								 0 0 1 30.55 113.85 L30.53 113.89 ZM54.95 89.32 L54.95 81.42 L57.83 81.42 L57.83 85.86 A27.221 27.221
+								 0 0 1 57.26 89.25 L54.97 89.25 L54.95 89.32 Z" class="st2"/>
+				</g>
+				<g id="shape24-7" v:mID="24" v:groupContext="shape" transform="translate(17.1611,-11.6123)">
+					<title>工作表.24</title>
+					<path d="M33.1 94.49 A19.3921 19.3921 -180 1 0 13.71 113.89 A19.3921 19.3921 -180 0 0 33.1 94.49 ZM4.8 101.37
+								 L21.87 101.26 A10.9244 10.9244 0 0 1 4.8 101.37 Z" class="st2"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

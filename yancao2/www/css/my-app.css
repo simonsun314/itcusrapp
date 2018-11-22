@@ -8,6 +8,10 @@
     display:block
 }
 
+.anitation{
+    position: static;
+}
+
 .demo-card-header-pic .card-header {
     height: 40vw;
     background-size: cover;
@@ -20,9 +24,8 @@
 
 hr.style-one {
     border: 0;
-    height: 3px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    height: 1px;
+    background: #A2ACAB;
     margin-top: 0px;
 }
 
@@ -55,7 +58,7 @@ hr.style-one {
 }
 
 .custom-result-style {
-    color: #CD5C5C;
+    color: #D32F2F;
     font-size:35px;
     font-weight: bold;
 }
@@ -146,4 +149,21 @@ hr.style-one {
     -webkit-justify-content: center;
     justify-content: center;
 }
-
+.color-grey {
+    background-color: #f2f2f2;
+}
+.color-toolbar {
+    color: #53565A;
+}
+.color-cls {
+    background-color: #D32F2F;
+}
+.color-light-red {
+    color: #FF6659;
+}
+.pic-custom {
+    width: 10%;
+}
+.swiper-pagination-bullet-active {
+    background-color: #D32F2F!important;
+}

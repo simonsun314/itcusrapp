@@ -1,13 +1,13 @@
 <div class="pages">
     <div class="page" data-page="resultFalse">
-        <div class="navbar theme-teal">
+        <div class="navbar color-cls">
             <div class="navbar-inner">
                 <div class="left">
                     <a href="#" class="link back">
                         <i class="icon icon-back"></i>
                     </a>
                 </div>
-                <div class="center">历史记录</div>
+                <div class="center">验证结果</div>
                 <div class="right"></div>
             </div>
         </div>
@@ -16,44 +16,105 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-header">
+                            <img class="pic-custom" src="img/fake.svg">
                             <span class="custom-result-style">{{Result}}</span>
                         </div>
                         <div class="card-content-inner">
                             <div class="list-block">
                                 <ul>
                                     <li class="item-content">
-                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-cyan">time_fill</i></div>
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red">time_fill</i></div>
                                         <div class="item-inner">
                                             <div class="item-title"><strong>查询时间：</strong></div>
                                             <div class="item-after custome-item-after-style">{{Date}}</div>
                                         </div>
                                     </li>
                                     <li class="item-content">
-                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-lightblue" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">navigation_fill</i></div>
                                         <div class="item-inner">
                                             <div class="item-title"><strong>查询地点：</strong></div>
                                             <div class="item-after custome-item-after-style">{{Addr}}</div>
                                         </div>
                                     </li>
                                     <li class="item-content">
-                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-lightblue" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">person_round</i></div>
                                         <div class="item-inner">
                                             <div class="item-title"><strong>用户：</strong></div>
                                             <div class="item-after custome-item-after-style">{{Username}}</div>
                                         </div>
                                     </li>
                                     <li class="item-content">
-                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-lightblue" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">ticket_fill</i></div>
                                         <div class="item-inner">
                                             <div class="item-title"><strong>ITCID：</strong></div>
                                             <div class="item-after custome-item-after-style">{{ITCID}}</div>
                                         </div>
                                     </li>
                                     <li class="item-content">
-                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-lightblue" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">help_round_fill</i></div>
                                         <div class="item-inner">
                                             <div class="item-title"><strong>定伪的原因：</strong></div>
                                             <div class="item-after custome-item-after-style">{{WhyFalse}}</div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item"><a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <i class="f7-icons color-light-red custom-icon-style">more_round_fill</i>
+                                                <strong>定伪详情</strong>
+                                            </div>
+                                        </div></a>
+                                        <div class="accordion-item-content">
+                                            <div class="content-block">
+                                                <div class="row no-gutter custome-row-style">
+                                                    <p>标签访问计数器值为：X</p>
+                                                    <p>后台访问计数器值为：Y</p>
+                                                    <p>由于X < Y, 标签有可能仿造的，商品有仿冒嫌疑</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <!--<img class="pic-custom" src="img/fake.svg">-->
+                            <i class="f7-icons color-light-red">info_round_fill</i>
+                            <h4>假冒商品维权指导建议</h4>
+                        </div>
+                        <div class="card-content-inner">
+                            <div class="list-block">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red">phone_fill</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>维权电话：</strong></div>
+                                            <div class="item-after custome-item-after-style">12315</div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">phone_round_fill</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>烟草专卖局电话：</strong></div>
+                                            <div class="item-after custome-item-after-style">xxxxx</div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">navigation_fill</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>烟草专卖局地址：</strong></div>
+                                            <div class="item-after custome-item-after-style">xxxxx</div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media custom-item-media-icon"><i class="f7-icons color-light-red" style="width: 25px;">phone_round</i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title"><strong>客服电话：</strong></div>
+                                            <div class="item-after custome-item-after-style">xxxxx</div>
                                         </div>
                                     </li>
                                 </ul>
@@ -64,15 +125,23 @@
             </div>
         </div>
         <!-- Bottom Toolbar-->
-        <div class="toolbar toolbar-bottom tabbar tabbar-labels theme-teal custome-tabbar">
+        <div class="toolbar toolbar-bottom tabbar tabbar-labels color-grey custome-tabbar">
             <div class="toolbar-inner">
-                <a href="#" class="tab-link link home-click">
-                    <i class="f7-icons">home</i>
-                    <span class="tabbar-label">首页</span>
+                <a href="#" class="tab-link active">
+                    <i class="f7-icons color-toolbar">home_fill</i>
+                    <span class="tabbar-label color-toolbar">首页</span>
+                </a>
+                <a href="#" class="tab-link">
+                    <i class="f7-icons color-toolbar">bag_fill</i>
+                    <span class="tabbar-label color-toolbar">更多</span>
+                </a>
+                <a href="#" class="tab-link">
+                    <i class="f7-icons color-toolbar">chat_fill</i>
+                    <span class="tabbar-label color-toolbar">消息</span>
                 </a>
                 <a href="#user" class="tab-link">
-                    <i class="f7-icons">person</i>
-                    <span class="tabbar-label">我的</span>
+                    <i class="f7-icons color-toolbar">person_fill</i>
+                    <span class="tabbar-label color-toolbar">我的</span>
                 </a>
             </div>
         </div>

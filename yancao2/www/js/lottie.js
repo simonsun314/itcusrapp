@@ -80,6 +80,16 @@ function styleDiv(element){
     element.style.backfaceVisibility  = element.style.webkitBackfaceVisibility = 'visible';
     element.style.transformStyle = element.style.webkitTransformStyle = element.style.mozTransformStyle = "preserve-3d";
 }
+// add by Juken
+function styleDivCustom(element){
+        element.style.position = 'static';
+        element.style.top = 0;
+        element.style.left = 0;
+        element.style.display = 'block';
+        element.style.transformOrigin = element.style.webkitTransformOrigin = '0 0';
+        element.style.backfaceVisibility  = element.style.webkitBackfaceVisibility = 'visible';
+        element.style.transformStyle = element.style.webkitTransformStyle = element.style.mozTransformStyle = "preserve-3d";
+    }
 
 function BMEnterFrameEvent(n,c,t,d){
     this.type = n;
@@ -9976,7 +9986,8 @@ HybridRenderer.prototype.configAnimation = function(animData){
     resizerElem.style.width = animData.w+'px';
     resizerElem.style.height = animData.h+'px';
     this.resizerElem = resizerElem;
-    styleDiv(resizerElem);
+    // mv styleDiv to styleDivCustom
+    styleDivCustom(resizerElem);
     resizerElem.style.transformStyle = resizerElem.style.webkitTransformStyle = resizerElem.style.mozTransformStyle = "flat";
     if(this.renderConfig.className) {
       resizerElem.setAttribute('class', this.renderConfig.className);
@@ -14245,4 +14256,4 @@ GroupEffect.prototype.init = function(data,element){
     }
     var readyStateCheckInterval = setInterval(checkReady, 100);
     return lottiejs;
-}));
+}));

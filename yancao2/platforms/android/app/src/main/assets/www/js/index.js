@@ -128,9 +128,12 @@ var mySwiper = myApp.swiper('.swiper-container', {
 //如果是正品，跳转该页面并加载数据
 dataTrue={
     Result: '正品',
-    Date: "16-Apr-17 16:24:03 CST",
+    Date: "2018-08-16 16:24:03",
     Addr: "上海市浦东新区永泰路1757号",
-    Product: 'XXXXXXX'
+    Product: 'XXXXXXX',
+    ManufactureAddr:'上海',
+    ManufactureDate:'2016-01-10',
+    ITCID:'J4IW56VI9EVS87UGB1F92X'
 };
 function ViewToResultTure(data) {
 	myApp.hidePreloader();
@@ -155,11 +158,11 @@ var result = function () {
 //如果是仿造品，跳转该页面并加载数据
 dataFalse={
     Result: '仿造',
-    Username:'User001,',
-    Date: "16-Apr-17 16:24:03 CST",
+    Username:'User001',
+    Date: "2018-08-16 16:24:03",
     Addr: "上海市浦东新区永泰路1757号",
-    ITCID: 'XXXXXXX1',
-    WhyFalse:'XXXXXX2'
+    ITCID: 'J4IW56VI9EVS87UGB1F92X',
+    WhyFalse:'Count定伪'
 };
 function ViewToResultFalse(data){
     mainView.router.load({
