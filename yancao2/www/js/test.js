@@ -6,6 +6,29 @@ var initNfcCount = 0;
 
 var tag; //the nfc tag
 
+
+
+//tag information collection
+var itc_tag_info = {
+  uid: "",
+  instanceid:"",
+  CountNum: 0,  //count value each connection
+  Date: "",   //request date
+  Addr: "",   //request location
+  Vendor: '',
+  VD: '',
+  Product: '',
+  PD: '',
+  BatchNum: '',
+  SN: '',
+  ManufDate: '',
+  Origin: '',
+  ManufAddr: '',
+  ShelfLife: '',
+  VendorIcon: "",
+  Icon: ""
+};
+
 /*
   afterText:  '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">'+
                   '<div class="swiper-pagination"></div>'+
@@ -1076,9 +1099,11 @@ var request_passwd = function(tag_itcid){
             var obj = JSON.parse(sesRsp);
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
-            logMyFunc("passwd:" + obj.Password);
+            var pswd =  obj.Password;
+
+            logMyFunc("passwd:" + pswd);
            
-            readsigfunc(obj.Password);
+            readsigfunc(pswd);
             
             
           } else {
@@ -1169,11 +1194,14 @@ var ITCD_verify = function(tag_itcid){
   request_passwd(tag_itcid);
 }
 
+
+//with passwd read
 var readsigfunc = function(passwd){
   //pass auth to read itc again
   var record = [
-      // ndef.textRecord(bin2string(parseHexString("11223344")) )
-      ndef.textRecord(bin2string(parseHexString(passwd)))
+      // ndef.textRecord(bin2string(parseHexString("979f6605")) )
+      ndef.textRecord("979f6605")
+      // ndef.textRecord((parseHexString(passwd)))
   ];
 
   
@@ -1187,17 +1215,20 @@ var readsigfunc = function(passwd){
   //   });
 
 
-    var failure = function(reason) {
-      myApp.alert("ERROR: " + reason);
+    var authfailure = function(reason) {
+      myApp.alert("有些问题: " + "刷的时候请不要挪开手机。");
+      nfc.removeTagListerner();
     };
   
-    var lockSuccess = function() {
-      myApp.alert("Tag is now read only.");
+    var authSuccess = function() {
+      myApp.alert("读取命令发送成功.");
+      nfc.removeTagListerner();
     };
   
     myApp.alert("read again");
-    setTimeout(function () {
-      nfc.readAuthTag(record,readAuthCallbk, lockSuccess, failure);
+    setTimeout(function () {  //delay for debug tag
+    nfc.readAuthTag(record,readAuthCallbk, authSuccess, authfailure);
+      
     }, 3000);
 }
 
@@ -1217,6 +1248,7 @@ var nfcCallbk = function (nfcEvent) {
   tag = nfcEvent.tag;
   logMyFunc("sig " + nfcEvent.tag.sig);
   logMyFunc("uid " + nfcEvent.tag.uid);
+  logMyFunc("itcid "+ nfcEvent.tag.itcidval.toLowerCase());
   logMyFunc("errorcode " + tag.errCode);
   logMyFunc("customercode " + tag.customercode);
   logMyFunc("commoditycode " + tag.commoditycode);
@@ -1240,7 +1272,7 @@ var nfcCallbk = function (nfcEvent) {
 // }
 
 
-  createSession(nfcEvent.tag.uid);
+  createSession(nfcEvent.tag.itcidval.toLowerCase());
   
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   //   logMyFunc("upload itc id validate error");
@@ -1285,10 +1317,12 @@ var nfcCallbk = function (nfcEvent) {
 var readAuthCallbk = function (nfcEvent) {
 
   // if(nfcEvent==100)return;
+  // nfc.removeTagListerner();
   tag = nfcEvent.tag;
-  //myApp.aler(nfcEvent);
-  myApp.alert(nfcEvent.tag.sig);
-  myApp.alert(nfcEvent.tag.uid);
+  myApp.alert("can we be here");
+  myApp.alert("error code "+nfcEvent.tag.errCode);
+  myApp.alert("signa"+nfcEvent.tag.sig);
+  myApp.alert("uiddata "+nfcEvent.tag.uid);
 
   // var record = [
   //     ndef.textRecord("hello, world")
