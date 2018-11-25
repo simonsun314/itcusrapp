@@ -36,8 +36,8 @@
       <file leaf-file-name="NfcPlugin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="1077" selection-start-line="1077" selection-end-line="1077" />
+            <state relative-caret-position="192">
+              <caret line="1099" column="53" selection-start-line="1099" selection-start-column="53" selection-end-line="1099" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#25229#25230#0" expanded="true" />
@@ -52,13 +52,12 @@
                 <element signature="e#29338#29339#0" expanded="true" />
                 <element signature="e#29380#29381#0" expanded="true" />
                 <element signature="e#29439#29440#0" expanded="true" />
-                <element signature="e#54495#54496#0" expanded="true" />
-                <element signature="e#54544#54545#0" expanded="true" />
-                <element signature="e#54578#54579#0" expanded="true" />
-                <element signature="e#54626#54627#0" expanded="true" />
-                <element signature="e#54671#54672#0" expanded="true" />
-                <element signature="e#54718#54719#0" expanded="true" />
-                <element signature="e#60657#60715#1" expanded="true" />
+                <element signature="e#55470#55471#0" expanded="true" />
+                <element signature="e#55519#55520#0" expanded="true" />
+                <element signature="e#55553#55554#0" expanded="true" />
+                <element signature="e#55601#55602#0" expanded="true" />
+                <element signature="e#55646#55647#0" expanded="true" />
+                <element signature="e#55693#55694#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,33 +107,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ITCDescriptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCDescriptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-              <folding>
-                <element signature="e#1476#1477#0" expanded="true" />
-                <element signature="e#1518#1519#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CordovaArgs.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaArgs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NTag21x.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="133" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="107">
+              <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NfcA.java" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Android/sdk/sources/android-27/android/nfc/tech/NfcA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -3185,6 +3171,16 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="plugin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="android" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="opensettings" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -3418,19 +3414,19 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java</url>
-          <line>1430</line>
+          <line>1439</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java</url>
-          <line>1049</line>
+          <line>1050</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java</url>
-          <line>1095</line>
+          <line>1104</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -3454,7 +3450,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java</url>
-          <line>1076</line>
+          <line>1077</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -3463,13 +3459,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Android/sdk/sources/android-26/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16796">
-          <caret line="884" selection-start-line="884" selection-end-line="884" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaInterfaceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1026">
@@ -3681,20 +3670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaArgs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/BufCodec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -3710,6 +3685,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/sdk/sources/android-26/android/util/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/sdk/sources/android-27/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="942" column="19" selection-start-line="942" selection-start-column="19" selection-end-line="942" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/sdk/sources/android-27/java/lang/Enum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+          <folding>
+            <element signature="e#3239#3240#0" expanded="true" />
+            <element signature="e#3266#3267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaArgs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
         </state>
       </provider>
     </entry>
@@ -3735,10 +3742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Android/sdk/sources/android-26/android/util/Log.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCNTag213.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="237" selection-start-line="237" selection-end-line="237" />
+        <state relative-caret-position="107">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -3755,35 +3762,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCNTag213.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Android/sdk/sources/android-27/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="942" column="19" selection-start-line="942" selection-start-column="19" selection-end-line="942" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Android/sdk/sources/android-27/java/lang/Enum.java">
+    <entry file="file://D:/Android/sdk/sources/android-27/android/nfc/tech/NfcA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
-          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
-          <folding>
-            <element signature="e#3239#3240#0" expanded="true" />
-            <element signature="e#3266#3267#0" expanded="true" />
-          </folding>
+          <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="1077" selection-start-line="1077" selection-end-line="1077" />
+        <state relative-caret-position="192">
+          <caret line="1099" column="53" selection-start-line="1099" selection-start-column="53" selection-end-line="1099" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#25229#25230#0" expanded="true" />
@@ -3798,13 +3794,12 @@
             <element signature="e#29338#29339#0" expanded="true" />
             <element signature="e#29380#29381#0" expanded="true" />
             <element signature="e#29439#29440#0" expanded="true" />
-            <element signature="e#54495#54496#0" expanded="true" />
-            <element signature="e#54544#54545#0" expanded="true" />
-            <element signature="e#54578#54579#0" expanded="true" />
-            <element signature="e#54626#54627#0" expanded="true" />
-            <element signature="e#54671#54672#0" expanded="true" />
-            <element signature="e#54718#54719#0" expanded="true" />
-            <element signature="e#60657#60715#1" expanded="true" />
+            <element signature="e#55470#55471#0" expanded="true" />
+            <element signature="e#55519#55520#0" expanded="true" />
+            <element signature="e#55553#55554#0" expanded="true" />
+            <element signature="e#55601#55602#0" expanded="true" />
+            <element signature="e#55646#55647#0" expanded="true" />
+            <element signature="e#55693#55694#0" expanded="true" />
           </folding>
         </state>
       </provider>
