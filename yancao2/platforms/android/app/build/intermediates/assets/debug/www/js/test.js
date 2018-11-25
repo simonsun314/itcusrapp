@@ -7,6 +7,12 @@ var initNfcCount = 0;
 var tag; //the nfc tag
 
 
+//error vrs update 
+var VRS_RPT_ERR = {
+  ITCERR: 2,
+  IVALID_PASS: 3,
+  IVALID_PACK: 4,
+};
 
 //tag information collection
 var itc_tag_info = {
@@ -968,7 +974,7 @@ var createSession = function (tag_itcid) {
 //send data to servers
 var wrongitc_rptbegin;
 var wrongitc_rptend;
-var wrong_itcid = function(){
+var do_autherr_proc = function(error_num,whyfalse){
   var xmlhttp;
   var restfulapi = "/api/v1/vrs/records/"+glb_recordid;
   var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
@@ -1000,8 +1006,9 @@ var wrong_itcid = function(){
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
-           
-            ViewToResultFalse(dataFalse);
+            var failreason = dataFalse;
+            failreason.WhyFalse = whyfalse;
+            ViewToResultFalse(failreason);
             
             
           } else {
@@ -1070,7 +1077,7 @@ var wrong_itcid = function(){
 
         // 2: Unknown ITCID, 3: Invalid Password,
         // 4. Invalid PACK
-        Result: 2, 
+        Result: error_num, 
         Detail: "",
     }));
     // xmlhttp.send();
@@ -1119,8 +1126,9 @@ var request_passwd = function(tag_itcid){
             logMyFunc("passwd:" + pswd);
             logMyFunc("pack is "+pack);
             pswd = "11223344";
+            pack = "AABB";//"AADD";//"AABB";
             // readsigfunc("ca44b678");
-            readsigfunc(pswd);
+            readsigfunc(pswd+pack);
             
             
           } else {
@@ -1202,9 +1210,10 @@ var request_passwd = function(tag_itcid){
 //report error if fail
 var ITCD_verify = function(tag_itcid){
   if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+    
     logMyFunc("upload itc id validate error");
     //upload data to server
-    wrong_itcid();
+    do_autherr_proc(VRS_RPT_ERR.ITCERR,"ITC验证错误");
     return;
     // logMyFunc("can I be here?");
   }
@@ -1334,15 +1343,30 @@ var nfcCallbk = function (nfcEvent) {
 
 }
 
+
+//post err to host
+
+//call bck function call by read auth
+// pass data from java 
+// errcode will be checked first
 var readAuthCallbk = function (nfcEvent) {
 
   // if(nfcEvent==100)return;
-  // nfc.removeTagListerner();
-  tag = nfcEvent.tag;
+  //nfc.removeTagListerner();
+  newtag = nfcEvent.tag;
   myApp.alert("can we be here");
-  myApp.alert("error code "+nfcEvent.tag.errCode);
-  myApp.alert("signa"+nfcEvent.tag.sig);
-  myApp.alert("uiddata "+nfcEvent.tag.uid);
+  myApp.alert("error code "+newtag.errCode);
+
+  if(newtag.errCode!=""){
+    //back to index.htm
+    myApp.alert("error occur");
+    //nfc.removeTagListerner();
+    do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
+    nfc.removeITCListerner();
+    return;
+  }
+  myApp.alert("signa"+newtag.sig);
+  myApp.alert("uiddata "+newtag.uid);
 
   // var record = [
   //     ndef.textRecord("hello, world")

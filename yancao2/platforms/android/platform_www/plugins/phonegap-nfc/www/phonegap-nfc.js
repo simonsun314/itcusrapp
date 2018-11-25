@@ -437,7 +437,7 @@ var nfc = {
         cordova.exec(win, fail, "NfcPlugin", "writeTag", [ndefMessage]);
     },
     readAuthTag: function (data, callback,win, fail) {
-        document.addEventListener("tag", callback, false);
+        document.addEventListener("itc-msg", callback, false);
         
         // var buffer;
         
@@ -503,8 +503,8 @@ var nfc = {
         document.removeEventListener("ndef", callback, false);
         cordova.exec(win, fail, "NfcPlugin", "removeNdef", []);
     },
-    removeTagListerner:function () {
-        document.removeEventListener("tag", callback, false);
+    removeITCListerner:function () {
+        document.removeEventListener("itc-msg", callback, false);
        
     },
 
