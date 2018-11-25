@@ -1367,7 +1367,7 @@ var readAuthCallbk = function (nfcEvent) {
   }
   myApp.alert("signa"+newtag.sig);
   myApp.alert("uiddata "+newtag.uid);
-
+  myApp.alert("ITC sig: "+newtag.itcsig);
   // var record = [
   //     ndef.textRecord("hello, world")
   // ];
