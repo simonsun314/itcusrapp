@@ -758,6 +758,21 @@ function parseHexString(str) {
   return result;
 }
 
+function parseHexStringwithblank(str) { 
+  var result = "";
+  while (str.length >= 2) { 
+      result += parseInt(str.substring(0, 2), 16);
+      // result += str.substring(0, 2);
+      if(str.length != 2){
+        result += ' ';
+      }
+      str = str.substring(2, str.length);
+  }
+
+  return result;
+}
+
+
 function bin2string(array){
 	var result = "";
 	for(var i = 0; i < array.length; ++i){
@@ -1100,9 +1115,11 @@ var request_passwd = function(tag_itcid){
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             var pswd =  obj.Password;
-
+            var pack =  obj.Pack;
             logMyFunc("passwd:" + pswd);
-           
+            logMyFunc("pack is "+pack);
+            pswd = "11223344";
+            // readsigfunc("ca44b678");
             readsigfunc(pswd);
             
             
@@ -1203,8 +1220,11 @@ var readsigfunc = function(passwd){
       ndef.textRecord("979f6605")
       // ndef.textRecord((parseHexString(passwd)))
   ];
+  //pwsswd = "11223a44";
+  // var tmp = "11223344";
+   var record2 = passwd;  //'99 99 06 0f';parseHexString(passwd);//'11 22 33 44';
+  myApp.alert("pass get1 "+record2);
 
-  
   // myApp.alert("nfc");
   // myApp.alert(tag.id);
   // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
@@ -1227,7 +1247,7 @@ var readsigfunc = function(passwd){
   
     myApp.alert("read again");
     setTimeout(function () {  //delay for debug tag
-    nfc.readAuthTag(record,readAuthCallbk, authSuccess, authfailure);
+    nfc.readAuthTag(record2,readAuthCallbk, authSuccess, authfailure);
       
     }, 3000);
 }
@@ -1271,7 +1291,7 @@ var nfcCallbk = function (nfcEvent) {
 //   "Detail": ""
 // }
 
-
+// readsigfunc("11223344");
   createSession(nfcEvent.tag.itcidval.toLowerCase());
   
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
