@@ -1125,9 +1125,9 @@ var request_passwd = function(tag_itcid){
             var pack =  obj.Pack;
             logMyFunc("passwd:" + pswd);
             logMyFunc("pack is "+pack);
-            pswd = "11223344";
-            pack = "AABB";//"AADD";//"AABB";
-            // readsigfunc("ca44b678");
+            // pswd = "11223344";
+            // pack = "AABB";//"AADD";//"AABB";
+            // // readsigfunc("ca44b678");
             readsigfunc(pswd+pack);
             
             
