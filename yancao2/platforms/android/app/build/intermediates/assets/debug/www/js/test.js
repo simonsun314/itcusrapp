@@ -1393,11 +1393,13 @@ var do_cortag_show = function(){
   var realshow = dataTrue;
   realshow.Date = sessionRsp.Time;
   realshow.Addr = sessionRsp.Address;
-  realshow.Product = sessionRsp.CustomerName;
+  // realshow.Product = sessionRsp.CustomerName;
+  realshow.MDate = sessionRsp.CommodityName;
   logMyFunc("product: "+realshow.Product);
   realshow.ManufactureAddr = sessionRsp.ManuPlace;
   realshow.ManufactureDate = sessionRsp.ManuDate;
   realshow.ITCID = sessionRsp.ITCID;
+  realshow.MAddr = sessionRsp.CustomerName;
   //do request to get more commodity informations
   ViewToResultTure(realshow);
 

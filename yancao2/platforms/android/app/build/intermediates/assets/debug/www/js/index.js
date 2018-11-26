@@ -133,7 +133,9 @@ dataTrue={
     Product: 'XXXXXXX',
     ManufactureAddr:'上海',
     ManufactureDate:'2016-01-10',
-    ITCID:'J4IW56VI9EVS87UGB1F92X'
+    ITCID:'J4IW56VI9EVS87UGB1F92X',
+    MDate: '茅台',
+    MAddr: '中华'
 };
 function ViewToResultTure(data) {
 	myApp.hidePreloader();
