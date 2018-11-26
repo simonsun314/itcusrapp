@@ -1254,8 +1254,8 @@ var request_passwd = function(tag_itcid){
 //verify itcid from nfc java plugin
 //report error if fail
 var ITCD_verify = function(tag_itcid){
-  if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
-    
+  // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+  if(tag.errCode!=""){
     logMyFunc("upload itc id validate error");
     //upload data to server
     do_autherr_proc(VRS_RPT_ERR.ITCERR,"ITC验证错误");
@@ -1278,7 +1278,10 @@ var readsigfunc = function(passwd){
   // var tmp = "11223344";
    var record2 = passwd;  //'99 99 06 0f';parseHexString(passwd);//'11 22 33 44';
   myApp.alert("pass get1 "+record2);
-
+  if(record2.length!=12){ //get error password or no passwd
+    do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
+    return;
+  }
   // myApp.alert("nfc");
   // myApp.alert(tag.id);
   // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
@@ -1318,16 +1321,27 @@ var nfcCallbk = function (nfcEvent) {
     function (error) {
       // alert("unregister failure \n"+error);
     });
+    var itcidpara = 0;
   // if(nfcEvent==100)return;
   tag = nfcEvent.tag;
-  logMyFunc("sig " + nfcEvent.tag.sig);
-  logMyFunc("uid " + nfcEvent.tag.uid);
-  logMyFunc("itcid "+ nfcEvent.tag.itcidval.toLowerCase());
-  logMyFunc("errorcode " + tag.errCode);
-  logMyFunc("customercode " + tag.customercode);
-  logMyFunc("commoditycode " + tag.commoditycode);
-  logMyFunc("instancecode " + tag.instancecode);
-  logMyFunc("passprotstat " + tag.passprotstat);
+  if(tag.errCode!=""){
+    if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+      itcidpara = "45678AABB";
+    }else{
+      logMyFunc("error:"+tag.errCode);
+      itcidpara = "1234AABB";
+    }
+  }else{
+    logMyFunc("sig " + nfcEvent.tag.sig);
+    logMyFunc("uid " + nfcEvent.tag.uid);
+    logMyFunc("itcid "+ nfcEvent.tag.itcidval.toLowerCase());
+    logMyFunc("errorcode " + tag.errCode);
+    logMyFunc("customercode " + tag.customercode);
+    logMyFunc("commoditycode " + tag.commoditycode);
+    logMyFunc("instancecode " + tag.instancecode);
+    logMyFunc("passprotstat " + tag.passprotstat);
+    itcidpara = nfcEvent.tag.itcidval.toLowerCase();
+  }
   
   
   //first create itc log 
@@ -1346,7 +1360,8 @@ var nfcCallbk = function (nfcEvent) {
 // }
 
 // readsigfunc("11223344");
-  createSession(nfcEvent.tag.itcidval.toLowerCase());
+  // createSession(nfcEvent.tag.itcidval.toLowerCase());
+  createSession(itcidpara);
   
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   //   logMyFunc("upload itc id validate error");
@@ -1924,10 +1939,10 @@ var startNFC = function () {
   //get UUID
   var deviceID = device.uuid;
   //myApp.alert(deviceID);
-
+  logMyFunc("uuid:" + deviceID);
   window.plugins.imei.get(
     function (imei) {
-       myApp.alert("got imei: " + imei);
+       logMyFunc("got imei: " + imei);
     },
     function () {
       //  myApp.alert("error loading imei");
@@ -2160,11 +2175,11 @@ var registerNfcMime = function () {
 
 /*register tag nfc call back and return error when nfc close*/
 var registerNFC = function () {
-   myApp.alert("register NFC");
+   logMyFunc("register NFC");
 
   nfc.addTagDiscoveredListener(nfcCallbk,
     function () { // success callback
-       myApp.alert("Waiting for tag");
+      logMyFunc("Waiting for tag");
       //myApp.alert(nfcEvent);
       //alert(nfcEvent.tag.sig);
       //registerNfcMime();
@@ -2172,7 +2187,7 @@ var registerNFC = function () {
     },
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
-      logMyFunc("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
+      myApp.alert("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
       mainView.router.load({
         url: 'index.html'
       });
