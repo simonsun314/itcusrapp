@@ -144,6 +144,7 @@ function ViewToResultTure(data) {
         context: data,
 	ignoreCache: true,
     });
+    registerNFC();
 }
 
 var result = function () {
@@ -171,6 +172,7 @@ function ViewToResultFalse(data){
         url: 'resultFalse.html',
         context: data
     });
+    registerNFC();
 }
 //加载靠一靠动画
 function ViewTonfsViews(){

@@ -46,7 +46,7 @@ var itc_tag_info = {
 
 var showhint = function (intxt) {
   var modal = myApp.modal({
-    title: '<font color=green style="font-weight:bold">3J防伪友情提醒：</font>',
+    title: '<font color=green style="font-weight:bold">防伪友情提醒：</font>',
     text: '<font color=black size=4>' + intxt + '</font>',
     afterText: '<div class="swiper-container" style="width: auto; margin:5px -15px -15px">' +
       '<div class="swiper-slide"><img src="img/icon.png" height="150" style="display:block"></div>' +
@@ -832,6 +832,15 @@ var clearSessionData = function(){
 
 // http://47.101.167.84:3000/api/v1/tgs/tags/12345ABC?token=34a51378e43dca83
 // http://47.101.167.84:3000/api/v1/vrs/records?token=34a51378e43dca83
+
+var goIndexPage = function(){
+
+  mainView.router.load({
+    url: 'index.html'
+  });
+  registerNFC();
+}
+
 var session_begtime;
 var session_endtime;
 var urlVerifyServer = "http://47.101.167.84:3000";
@@ -877,9 +886,10 @@ var createSession = function (tag_itcid) {
             if(glb_recordid==""){
               logMyFunc("Create Server Session Error");
               //go index.htm
-              mainView.router.load({
-                url: 'index.html'
-              });
+              // mainView.router.load({
+              //   url: 'index.html'
+              // });
+              goIndexPage();
               return;
             }
             sessionRsp.ITCID = obj.ITCID;
@@ -929,9 +939,10 @@ var createSession = function (tag_itcid) {
             logMyFunc("my tag server 网络错误代码2:" + this.status);
             setTimeout(function () {
               myApp.closeModal();
-              mainView.router.load({
-                url: 'index.html'
-              });
+              // mainView.router.load({
+              //   url: 'index.html'
+              // });
+              goIndexPage();
             }, 2000);
           }
         } else {
@@ -942,9 +953,10 @@ var createSession = function (tag_itcid) {
           logMyFunc("my tag server 网络错误代码:" + this.status);
           setTimeout(function () {
             myApp.closeModal();
-            mainView.router.load({
-              url: 'index.html'
-            });
+            // mainView.router.load({
+            //   url: 'index.html'
+            // });
+            goIndexPage();
           }, 2000);
         }
       }
@@ -958,9 +970,10 @@ var createSession = function (tag_itcid) {
       logMyFunc("访问超时2" + e + "请确保网络打开");
       setTimeout(function () {
         myApp.closeModal();
-        mainView.router.load({
-          url: 'index.html'
-        });
+        goIndexPage();
+        // mainView.router.load({
+        //   url: 'index.html'
+        // });
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -968,6 +981,7 @@ var createSession = function (tag_itcid) {
       // regNFCinMid();
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
+      goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1056,6 +1070,7 @@ var do_autherr_proc = function(error_num,whyfalse){
             setTimeout(function () {
               myApp.closeModal();
               ViewToResultFalse(dataFalse);
+              // goIndexPage();
             }, 2000);
           }
         } else {
@@ -1067,6 +1082,7 @@ var do_autherr_proc = function(error_num,whyfalse){
           setTimeout(function () {
             myApp.closeModal();
             ViewToResultFalse(dataFalse);
+            // goIndexPage();
           }, 2000);
         }
       }
@@ -1081,6 +1097,7 @@ var do_autherr_proc = function(error_num,whyfalse){
       setTimeout(function () {
         myApp.closeModal();
         ViewToResultFalse(dataFalse);
+        // goIndexPage();
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -1089,6 +1106,7 @@ var do_autherr_proc = function(error_num,whyfalse){
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
       ViewToResultFalse(dataFalse);
+      // goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1184,7 +1202,8 @@ var request_passwd = function(tag_itcid){
             logMyFunc("my tag server 网络错误代码2:" + this.status);
             setTimeout(function () {
               myApp.closeModal();
-              ViewToResultFalse(dataFalse);
+              // ViewToResultFalse(dataFalse);
+              goIndexPage();
             }, 2000);
           }
         } else {
@@ -1195,7 +1214,8 @@ var request_passwd = function(tag_itcid){
           logMyFunc("my tag server 网络错误代码:" + this.status);
           setTimeout(function () {
             myApp.closeModal();
-            ViewToResultFalse(dataFalse);
+            // ViewToResultFalse(dataFalse);
+            goIndexPage();
           }, 2000);
         }
       }
@@ -1209,7 +1229,8 @@ var request_passwd = function(tag_itcid){
       logMyFunc("访问超时2" + e + "请确保网络打开");
       setTimeout(function () {
         myApp.closeModal();
-        ViewToResultFalse(dataFalse);
+        // ViewToResultFalse(dataFalse);
+        goIndexPage();
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -1217,7 +1238,8 @@ var request_passwd = function(tag_itcid){
       // regNFCinMid();
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
-      ViewToResultFalse(dataFalse);
+      // ViewToResultFalse(dataFalse);
+      goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1294,15 +1316,15 @@ var readsigfunc = function(passwd){
 
     var authfailure = function(reason) {
       myApp.alert("有些问题: " + "刷的时候请不要挪开手机。");
-      nfc.removeTagListerner();
+      // nfc.removeTagListerner();
     };
   
     var authSuccess = function() {
-      myApp.alert("读取命令发送成功.");
-      nfc.removeTagListerner();
+      logMyFunc("读取命令发送成功.");
+      // nfc.removeTagListerner();
     };
   
-    myApp.alert("read again");
+    logMyFunc("read again");
     setTimeout(function () {  //delay for debug tag
     nfc.readAuthTag(record2,readAuthCallbk, authSuccess, authfailure);
       
@@ -1480,9 +1502,10 @@ var request_tagcnt_chk = function(itc_count){
             logMyFunc("my tag server 网络错误代码2:" + this.status);
             setTimeout(function () {
               myApp.closeModal();
-              var failreason = dataFalse;
-              failreason.WhyFalse = "网络错误";
-              ViewToResultFalse(failreason);
+              // var failreason = dataFalse;
+              // failreason.WhyFalse = "网络错误";
+              // ViewToResultFalse(failreason);
+              goIndexPage();
             }, 2000);
           }
         } else {
@@ -1493,9 +1516,10 @@ var request_tagcnt_chk = function(itc_count){
           logMyFunc("my tag server 网络错误代码:" + this.status);
           setTimeout(function () {
             myApp.closeModal();
-            var failreason = dataFalse;
-            failreason.WhyFalse = "网络错误";
-            ViewToResultFalse(failreason);
+            // var failreason = dataFalse;
+            // failreason.WhyFalse = "网络错误";
+            // ViewToResultFalse(failreason);
+            goIndexPage();
           }, 2000);
         }
       }
@@ -1509,9 +1533,10 @@ var request_tagcnt_chk = function(itc_count){
       logMyFunc("访问超时2" + e + "请确保网络打开");
       setTimeout(function () {
         myApp.closeModal();
-        var failreason = dataFalse;
-        failreason.WhyFalse = "网络错误";
-        ViewToResultFalse(failreason);
+        // var failreason = dataFalse;
+        // failreason.WhyFalse = "网络错误";
+        // ViewToResultFalse(failreason);
+        goIndexPage();
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -1519,9 +1544,10 @@ var request_tagcnt_chk = function(itc_count){
       // regNFCinMid();
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
-      var failreason = dataFalse;
-      failreason.WhyFalse = "网络错误";
-      ViewToResultFalse(failreason);
+      // var failreason = dataFalse;
+      // failreason.WhyFalse = "网络错误";
+      // ViewToResultFalse(failreason);
+      goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1613,9 +1639,10 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
             logMyFunc("my tag server 网络错误代码2:" + this.status);
             setTimeout(function () {
               myApp.closeModal();
-              var failreason = dataFalse;
-              failreason.WhyFalse = "网络错误";
-              ViewToResultFalse(failreason);
+              // var failreason = dataFalse;
+              // failreason.WhyFalse = "网络错误";
+              // ViewToResultFalse(failreason);
+              goIndexPage();
             }, 2000);
           }
         } else {
@@ -1626,9 +1653,10 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
           logMyFunc("my tag server 网络错误代码:" + this.status);
           setTimeout(function () {
             myApp.closeModal();
-            var failreason = dataFalse;
-            failreason.WhyFalse = "网络错误";
-            ViewToResultFalse(failreason);
+            // var failreason = dataFalse;
+            // failreason.WhyFalse = "网络错误";
+            // ViewToResultFalse(failreason);
+            goIndexPage();
           }, 2000);
         }
       }
@@ -1642,9 +1670,10 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
       logMyFunc("访问超时2" + e + "请确保网络打开");
       setTimeout(function () {
         myApp.closeModal();
-        var failreason = dataFalse;
-        failreason.WhyFalse = "网络错误";
-        ViewToResultFalse(failreason);
+        // var failreason = dataFalse;
+        // failreason.WhyFalse = "网络错误";
+        // ViewToResultFalse(failreason);
+        goIndexPage();
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -1652,9 +1681,10 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
       // regNFCinMid();
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
-      var failreason = dataFalse;
-      failreason.WhyFalse = "网络错误";
-      ViewToResultFalse(failreason);
+      // var failreason = dataFalse;
+      // failreason.WhyFalse = "网络错误";
+      // ViewToResultFalse(failreason);
+      goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1695,11 +1725,11 @@ var readAuthCallbk = function (nfcEvent) {
   //nfc.removeTagListerner();
   newtag = nfcEvent.tag;
   // myApp.alert("can we be here");
-  myApp.alert("error code "+newtag.errCode);
+  logMyFunc("error code "+newtag.errCode);
 
   if(newtag.errCode!=""){
     //back to index.htm
-    myApp.alert("error occur");
+    logMyFunc("error occur");
     //nfc.removeTagListerner();
     if(newtag.errCode=="invalid pack"){
       do_autherr_proc(VRS_RPT_ERR.IVALID_PACK,"密码ACK出错");
@@ -1710,45 +1740,15 @@ var readAuthCallbk = function (nfcEvent) {
     //nfc.removeITCListerner();
     return;
   }
-  myApp.alert("signa"+newtag.sig);
-  myApp.alert("uiddata "+newtag.uid);
-  myApp.alert("ITC sig: "+newtag.itcsig);
-  myApp.alert("count "+newtag.count);
+  logMyFunc("signa"+newtag.sig);
+  logMyFunc("uiddata "+newtag.uid);
+  logMyFunc("ITC sig: "+newtag.itcsig);
+  logMyFunc("count "+newtag.count);
 
   //post data to server check sig
   //nfc.removeITCListerner();
   check_tag_sig_fromSrv(newtag.itcsig,newtag.count);
-  // var record = [
-  //     ndef.textRecord("hello, world")
-  // ];
-
-  
-  // // myApp.alert("nfc");
-  // // myApp.alert(tag.id);
-  // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
-  //   // alert("unregister success\n");
-  // },
-  //   function (error) {
-  //     // alert("unregister failure \n"+error);
-  //   });
-
-
-  //   var failure = function(reason) {
-  //     myApp.alert("ERROR: " + reason);
-  //   };
-  
-  //   var lockSuccess = function() {
-  //     myApp.alert("Tag is now read only.");
-  //   };
-  
-  //   myApp.alert("read again");
-  //   setTimeout(function () {
-  //     nfc.readAuthTag(readAuthCallbk,record, lockSuccess, failure);
-  //   }, 3000);
-    
-
-    //get next information 
-  // tagThinfilmReq();
+ 
 
 
 }
