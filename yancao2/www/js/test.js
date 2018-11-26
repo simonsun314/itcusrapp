@@ -794,13 +794,41 @@ var sessionRsp =  {
     RecordID: "12345",
     Time: "2018-12-02T11:11:00Z",
     ITCID: "12345ABC",
+    CustomerID: 0,
+    CustomerName: "上海烟草集团有限责任公司",
     UserID: "12938091",
     Longitude: "100.00",
     Latitude: "100.00",
     Address: "上海市浦东新区",
     Result: -1, 
     Detail: "",
+    CommdityID: 0,
+    CommodityName: "",
+    ManuPlace: "",
+    ManuDate: "",
 };
+
+
+//this function clear sessionRsp variable information.
+//this information will be gathered during whole http request.
+var clearSessionData = function(){
+  sessionRsp.RecordID = "";
+  sessionRsp.Time = "";
+  sessionRsp.ITCID = "";
+  sessionRsp.UserID = "";
+  sessionRsp.Longitude = "";
+  sessionRsp.Latitude = "";
+  sessionRsp.Address = "";
+  sessionRsp.Result = -1;
+  sessionRsp.Detail = "";
+  sessionRsp.CustomerID = 0;
+  sessionRsp.CustomerName = "";
+  sessionRsp.CommdityID = 0;
+  sessionRsp.CommodityName = "";
+  sessionRsp.ManuPlace = "";
+  sessionRsp.ManuDate = "";
+  
+}
 
 // http://47.101.167.84:3000/api/v1/tgs/tags/12345ABC?token=34a51378e43dca83
 // http://47.101.167.84:3000/api/v1/vrs/records?token=34a51378e43dca83
@@ -809,13 +837,15 @@ var session_endtime;
 var urlVerifyServer = "http://47.101.167.84:3000";
 var tokenval = "?token=34a51378e43dca83";
 
-
+//create record for this time inquery to server
+//clear global session data for further use
 var createSession = function (tag_itcid) {
   var xmlhttp;
   var restfulapi = "/api/v1/vrs/records"
   var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
   logMyFunc("itcid: " + tag_itcid);
   logMyFunc("targeturl: " + targetUrladdr );
+  clearSessionData();
   glb_recordid = "";
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
@@ -850,9 +880,15 @@ var createSession = function (tag_itcid) {
               mainView.router.load({
                 url: 'index.html'
               });
+              return;
             }
-            sessionRsp.Latitude = obj.Location.GPS.Longitude;
+            sessionRsp.ITCID = obj.ITCID;
+            sessionRsp.Time = obj.Time;
+            sessionRsp.UserID = obj.UserID;
+            sessionRsp.Latitude = obj.Location.GPS.Latitude;
             logMyFunc("latitude :" + sessionRsp.Latitude);
+            sessionRsp.Longitude = obj.Location.GPS.Longitude;
+            sessionRsp.Address = obj.Address;
             // testobj.VendorIcon = obj.ProductInfo.VendorIcon;
             // testobj.Icon = obj.ProductInfo.Icon;
             // testobj.VendorIcon = "http://106.14.1.85:8591/static/img/jt-vendor.jpg";
@@ -1125,6 +1161,15 @@ var request_passwd = function(tag_itcid){
             var pack =  obj.Pack;
             logMyFunc("passwd:" + pswd);
             logMyFunc("pack is "+pack);
+            sessionRsp.CustomerID = obj.CustomerID;
+            sessionRsp.CustomerName = obj.CustomerName;
+            logMyFunc("厂商: "+sessionRsp.CustomerName);
+            sessionRsp.CommdityID = obj.CommdityID;
+            sessionRsp.CommodityName = obj.CommodityName;
+            sessionRsp.ManuPlace = obj.Place;
+            sessionRsp.ManuDate = obj.Date;
+            sessionRsp.ITCID = obj.ITCID;
+            logMyFunc("customid: "+sessionRsp.CustomerID);
             // pswd = "11223344";
             // pack = "AABB";//"AADD";//"AABB";
             // // readsigfunc("ca44b678");
@@ -1343,8 +1388,286 @@ var nfcCallbk = function (nfcEvent) {
 
 }
 
+// request and show right data
+var do_cortag_show = function(){
+  var realshow = dataTrue;
+  realshow.Date = sessionRsp.Time;
+  realshow.Addr = sessionRsp.Address;
+  realshow.Product = sessionRsp.CustomerName;
+  logMyFunc("product: "+realshow.Product);
+  realshow.ManufactureAddr = sessionRsp.ManuPlace;
+  realshow.ManufactureDate = sessionRsp.ManuDate;
+  realshow.ITCID = sessionRsp.ITCID;
+  //do request to get more commodity informations
+  ViewToResultTure(realshow);
 
-//post err to host
+
+}
+
+//do count check
+var posttagcntbegin;
+var posttagcntend;
+var request_tagcnt_chk = function(itc_count){
+  var xmlhttp;
+  var restfulapi = "/api/v1/vrs/records/"+glb_recordid+"/vcounter"; // /api/v1/vrs/records/{record_id}/vds
+  var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
+  logMyFunc("recid: " + glb_recordid);
+  logMyFunc("targeturl: " + targetUrladdr );
+
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.timeout = 5000;
+
+    xmlhttp.onreadystatechange = function () {
+      //myApp.alert(this.readyState);
+      //var DONE = this.DONE || 4;
+      if (this.readyState == 4) {
+        //myApp.alert(this.readyState);
+        //myApp.alert(this.response);
+        // myApp.alert(this.status);
+        if (this.status == 200) {
+          var tempdate1 = new Date();
+          posttagcntend = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          logMyFunc("request tag my server:" + posttagcntbegin + " " + posttagcntend);
+          var sesRsp = this.response;
+          if (xmlhttp.getResponseHeader("Content-Type").toString().search('json') != -1) {
+
+            //myApp.alert(result2);
+            var obj = JSON.parse(sesRsp);
+            // testobj = obj;
+            // dataFalse.ITCID = obj.UserID;
+            // logMyFunc("server back user id:" + dataFalse.ITCID);
+            logMyFunc("result ",obj.Result);
+            if((obj.Result!=-1)&&(obj.Result!=0)){
+              if(obj.Result==5){
+                var failreason = dataFalse;
+                failreason.WhyFalse = "Invalid Count错误";
+                ViewToResultFalse(failreason);
+              }else{
+                var failreason = dataFalse;
+                failreason.WhyFalse = "未知错误";
+                ViewToResultFalse(failreason);
+              }
+              return;
+            }
+           
+            //do final display
+            do_cortag_show();
+           
+            
+          } else {
+            myApp.hidePreloader();
+            // regNFCinMid();
+            //myApp.alert("网络出错,请确保网络打开");
+            showhint("网络出错,请确保网络打开");
+            logMyFunc("my tag server 网络错误代码2:" + this.status);
+            setTimeout(function () {
+              myApp.closeModal();
+              var failreason = dataFalse;
+              failreason.WhyFalse = "网络错误";
+              ViewToResultFalse(failreason);
+            }, 2000);
+          }
+        } else {
+          myApp.hidePreloader();
+          // regNFCinMid();
+          //myApp.alert("网络出错,请确保网络打开");
+          showhint("网络出错,请确保网络打开");
+          logMyFunc("my tag server 网络错误代码:" + this.status);
+          setTimeout(function () {
+            myApp.closeModal();
+            var failreason = dataFalse;
+            failreason.WhyFalse = "网络错误";
+            ViewToResultFalse(failreason);
+          }, 2000);
+        }
+      }
+    };
+
+    xmlhttp.ontimeout = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      //myApp.alert("访问超时,请确保网络打开");
+      showhint("访问超时,请确保网络打开");
+      logMyFunc("访问超时2" + e + "请确保网络打开");
+      setTimeout(function () {
+        myApp.closeModal();
+        var failreason = dataFalse;
+        failreason.WhyFalse = "网络错误";
+        ViewToResultFalse(failreason);
+      }, 2000);
+    };
+    xmlhttp.onerror = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      // myApp.alert("访问错误2"+e+"请确保网络打开");
+      logMyFunc("访问错误2" + e + "请确保网络打开");
+      var failreason = dataFalse;
+      failreason.WhyFalse = "网络错误";
+      ViewToResultFalse(failreason);
+      /* setTimeout(function () {
+         myApp.closeModal();
+       }, 2000);*/
+    };
+    // xmlhttp.open('GET', targetUrladdr, true);
+    xmlhttp.open('POST', targetUrladdr, true);
+    //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
+    //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
+    //  xmlhttp.setRequestHeader("Api-Key", ""); 
+    //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
+    //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
+    // xmlhttp.setRequestHeader("token", tokenval); 
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+    //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
+    //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
+
+    var tempdate = new Date();
+    posttagcntbegin = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
+    xmlhttp.send(JSON.stringify({
+
+
+        // 2: Unknown ITCID, 3: Invalid Password,
+        // 4. Invalid PACK
+        Counter: itc_count,
+
+    }));
+    // xmlhttp.send();
+  }
+}
+
+//post check sig to host
+var postsigbegin;
+var postsigend;
+var check_tag_sig_fromSrv = function(itc_signature,itc_count){
+  var xmlhttp;
+  var restfulapi = "/api/v1/vrs/records/"+glb_recordid+"/vds"; // /api/v1/vrs/records/{record_id}/vds
+  var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
+  logMyFunc("recid: " + glb_recordid);
+  logMyFunc("targeturl: " + targetUrladdr );
+
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.timeout = 5000;
+
+    xmlhttp.onreadystatechange = function () {
+      //myApp.alert(this.readyState);
+      //var DONE = this.DONE || 4;
+      if (this.readyState == 4) {
+        //myApp.alert(this.readyState);
+        //myApp.alert(this.response);
+        // myApp.alert(this.status);
+        if (this.status == 200) {
+          var tempdate1 = new Date();
+          postsigend = tempdate1.getSeconds().toString() + "." + tempdate1.getMilliseconds().toString();
+          logMyFunc("request tag my server:" + postsigbegin + " " + postsigend);
+          // myApp.alert(thintime1+"\n"+thintime2);
+          // myApp.alert(myservtime1+" "+myservtime2);
+          var sesRsp = this.response;
+          if (xmlhttp.getResponseHeader("Content-Type").toString().search('json') != -1) {
+
+            //myApp.alert(result2);
+            var obj = JSON.parse(sesRsp);
+            // testobj = obj;
+            // dataFalse.ITCID = obj.UserID;
+            // logMyFunc("server back user id:" + dataFalse.ITCID);
+            logMyFunc("result ",obj.Result);
+            if((obj.Result!=-1)&&(obj.Result!=0)){
+              if(obj.Result==4){
+                var failreason = dataFalse;
+                failreason.WhyFalse = "DS错误";
+                ViewToResultFalse(failreason);
+              }else{
+                var failreason = dataFalse;
+                failreason.WhyFalse = "未知错误";
+                ViewToResultFalse(failreason);
+              }
+              return;
+            }
+           
+            //do count check
+            request_tagcnt_chk(itc_count);
+            
+          } else {
+            myApp.hidePreloader();
+            // regNFCinMid();
+            //myApp.alert("网络出错,请确保网络打开");
+            showhint("网络出错,请确保网络打开");
+            logMyFunc("my tag server 网络错误代码2:" + this.status);
+            setTimeout(function () {
+              myApp.closeModal();
+              var failreason = dataFalse;
+              failreason.WhyFalse = "网络错误";
+              ViewToResultFalse(failreason);
+            }, 2000);
+          }
+        } else {
+          myApp.hidePreloader();
+          // regNFCinMid();
+          //myApp.alert("网络出错,请确保网络打开");
+          showhint("网络出错,请确保网络打开");
+          logMyFunc("my tag server 网络错误代码:" + this.status);
+          setTimeout(function () {
+            myApp.closeModal();
+            var failreason = dataFalse;
+            failreason.WhyFalse = "网络错误";
+            ViewToResultFalse(failreason);
+          }, 2000);
+        }
+      }
+    };
+
+    xmlhttp.ontimeout = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      //myApp.alert("访问超时,请确保网络打开");
+      showhint("访问超时,请确保网络打开");
+      logMyFunc("访问超时2" + e + "请确保网络打开");
+      setTimeout(function () {
+        myApp.closeModal();
+        var failreason = dataFalse;
+        failreason.WhyFalse = "网络错误";
+        ViewToResultFalse(failreason);
+      }, 2000);
+    };
+    xmlhttp.onerror = function (e) {
+      myApp.hidePreloader();
+      // regNFCinMid();
+      // myApp.alert("访问错误2"+e+"请确保网络打开");
+      logMyFunc("访问错误2" + e + "请确保网络打开");
+      var failreason = dataFalse;
+      failreason.WhyFalse = "网络错误";
+      ViewToResultFalse(failreason);
+      /* setTimeout(function () {
+         myApp.closeModal();
+       }, 2000);*/
+    };
+    // xmlhttp.open('GET', targetUrladdr, true);
+    xmlhttp.open('POST', targetUrladdr, true);
+    //  xmlhttp.open('POST', 'https://api.thinfilm.no/v1/tags/fd92a2d5e6c45635b53a250e2dc60adcafc85003a3a95092724b278d643dacb0', true);
+    //   xmlhttp.setRequestHeader("Authorization-Token", ""); 
+    //  xmlhttp.setRequestHeader("Api-Key", ""); 
+    //  xmlhttp.setRequestHeader("User-Agent","no.thinfilm.sample.authpublic/1.0.5-6(golden)ThinfilmSdk/14");
+    //  xmlhttp.setRequestHeader("X-Requested-With", "no.thinfilm.sdk:v14"); 
+    // xmlhttp.setRequestHeader("token", tokenval); 
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+    //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
+    //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
+
+    var tempdate = new Date();
+    postsigbegin = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
+    xmlhttp.send(JSON.stringify({
+
+
+        // 2: Unknown ITCID, 3: Invalid Password,
+        // 4. Invalid PACK
+        DS: itc_signature,
+
+    }));
+    // xmlhttp.send();
+  }
+}
 
 //call bck function call by read auth
 // pass data from java 
@@ -1354,21 +1677,30 @@ var readAuthCallbk = function (nfcEvent) {
   // if(nfcEvent==100)return;
   //nfc.removeTagListerner();
   newtag = nfcEvent.tag;
-  myApp.alert("can we be here");
+  // myApp.alert("can we be here");
   myApp.alert("error code "+newtag.errCode);
 
   if(newtag.errCode!=""){
     //back to index.htm
     myApp.alert("error occur");
     //nfc.removeTagListerner();
-    do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
-    nfc.removeITCListerner();
+    if(newtag.errCode=="invalid pack"){
+      do_autherr_proc(VRS_RPT_ERR.IVALID_PACK,"密码ACK出错");
+    }else{
+      do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
+    }
+    
+    //nfc.removeITCListerner();
     return;
   }
   myApp.alert("signa"+newtag.sig);
   myApp.alert("uiddata "+newtag.uid);
   myApp.alert("ITC sig: "+newtag.itcsig);
   myApp.alert("count "+newtag.count);
+
+  //post data to server check sig
+  //nfc.removeITCListerner();
+  check_tag_sig_fromSrv(newtag.itcsig,newtag.count);
   // var record = [
   //     ndef.textRecord("hello, world")
   // ];
