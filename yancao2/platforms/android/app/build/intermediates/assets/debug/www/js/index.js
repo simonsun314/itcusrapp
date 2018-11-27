@@ -110,7 +110,7 @@ var myApp = new Framework7({
     }
 }
 );
-var $$ = Dom7;
+
 // Add main View
 var mainView = myApp.addView('.view-main');
 
@@ -124,18 +124,20 @@ var mySwiper = myApp.swiper('.swiper-container', {
     autoplayDisableOnInteraction: false
 });
 
-//页面跳转resultInfo.html方法
+
+
+var $$ = Dom7;
+
 //如果是正品，跳转该页面并加载数据
 dataTrue={
     Result: '正品',
     Date: "2018-08-16 16:24:03",
     Addr: "上海市浦东新区永泰路1757号",
     Product: 'XXXXXXX',
+    ProduceAddr:"上海浦东",
     ManufactureAddr:'上海',
     ManufactureDate:'2016-01-10',
-    ITCID:'J4IW56VI9EVS87UGB1F92X',
-    MDate: '茅台',
-    MAddr: '中华'
+    ITCID:'J4IW56VI9EVS87UGB1F92X'
 };
 function ViewToResultTure(data) {
 	myApp.hidePreloader();
@@ -145,6 +147,16 @@ function ViewToResultTure(data) {
 	ignoreCache: true,
     });
     registerNFC();
+}
+
+function ViewToResultTureHome(data) {
+	myApp.hidePreloader();
+    mainView.router.load({
+        url: 'resultTrue.html',
+        context: data,
+	ignoreCache: true,
+    });
+
 }
 
 var result = function () {
@@ -159,13 +171,17 @@ var result = function () {
     //mainView.router.refreshPage() ;
 };
 //如果是仿造品，跳转该页面并加载数据
+function replaceN(data) {
+    return data.replace(/\n/g,"<br/>")
+}
 dataFalse={
     Result: '仿造',
     Username:'User001',
     Date: "2018-08-16 16:24:03",
-    Addr: "上海市浦东新区永泰路1757号",
+    Addr: "上海市浦东新区永泰路1757号,上海市浦东新区永泰路1757号,上海市浦东新区永泰路1757号",
     ITCID: 'J4IW56VI9EVS87UGB1F92X',
-    WhyFalse:'Count定伪'
+    WhyFalse:'Count定伪',
+    Des:replaceN("标签访问计数器值为：10\n后台访问计数器值为：11\n由于10<11，标签有可能是仿造的，商品有仿冒嫌疑")
 };
 function ViewToResultFalse(data){
     mainView.router.load({
@@ -173,6 +189,14 @@ function ViewToResultFalse(data){
         context: data
     });
     registerNFC();
+}
+
+function ViewToResultFalseHome(data){
+    mainView.router.load({
+        url: 'resultFalse.html',
+        context: data
+    });
+    
 }
 //加载靠一靠动画
 function ViewTonfsViews(){
@@ -190,10 +214,12 @@ $$('.load-home').on('click', function () {
 });
 //home page事件(测试按钮)，添加了loading反馈，之后跳转到resultInfo.html
 $$('.resultTrue').on('click', function () {
-    ViewToResultTure(dataTrue)
+    // ViewToResultTure(dataTrue)
+    // ViewToResultTureHome(dataTrue)
 });
 $$('.resultFalse').on('click',function () {
-    ViewToResultFalse(dataFalse)
+    // ViewToResultFalse(dataFalse)
+    ViewToResultFalseHome(dataFalse)
 });
 $$('.nfsviews').on('click',function () {
     ViewTonfsViews()
@@ -274,10 +300,10 @@ var stopNFC = function(){
 //页面返回时，home page的回调函数
 myApp.onPageInit('home', function (page) {
     $$('.resultTrue').on('click', function () {
-        ViewToResultTure(dataTrue)
+        ViewToResultTureHome(dataTrue)
     });
     $$('.resultFalse').on('click',function () {
-        ViewToResultFalse(dataFalse)
+        ViewToResultFalseHome(dataFalse)
     });
     $$('.nfsviews').on('click',function () {
         ViewTonfsViews()
@@ -343,7 +369,8 @@ myApp.onPageInit('resultFalse', function (page) {
     });
 });
 
-var glb_initnfc = false;
+var glb_initnfc = false;  //glb_initnfc is avoid return from function to call this pageinit 
+//to do register NFC twice
 //靠一靠的回调函数，页面切换至nfsviews.html
 myApp.onPageInit('nfsviews', function (page) {
     var animData = {
@@ -355,7 +382,7 @@ myApp.onPageInit('nfsviews', function (page) {
         path: 'data/nfs.json'
 
     };
-    logMyFunc("test: why here");
+    // logMyFunc("test: why here");
     var anim = bodymovin.loadAnimation(animData);
     if(glb_initnfc==false){
         setTimeout(startNFC, 500);

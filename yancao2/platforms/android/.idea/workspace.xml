@@ -36,7 +36,7 @@
       <file leaf-file-name="NfcPlugin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1786">
+            <state relative-caret-position="19">
               <caret line="1099" column="53" selection-start-line="1099" selection-start-column="53" selection-end-line="1099" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -82,7 +82,7 @@
       <file leaf-file-name="ITCNTag213.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCNTag213.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="532">
               <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
@@ -104,7 +104,7 @@
       <file leaf-file-name="NTag21x.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
+            <state relative-caret-position="1976">
               <caret line="119" selection-start-line="119" selection-end-line="119" />
             </state>
           </provider>
@@ -3113,7 +3113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -3180,6 +3179,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3191,7 +3192,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3757,21 +3757,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCNTag213.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="532">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
+        <state relative-caret-position="1976">
           <caret line="119" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
+        <state relative-caret-position="19">
           <caret line="1099" column="53" selection-start-line="1099" selection-start-column="53" selection-end-line="1099" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />

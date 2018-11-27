@@ -161,9 +161,27 @@ hr.style-one {
 .color-light-red {
     color: #FF6659;
 }
+.color-red {
+    color: #D32F2F;
+}
 .pic-custom {
     width: 10%;
 }
 .swiper-pagination-bullet-active {
     background-color: #D32F2F!important;
 }
+.padding-custom {
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+}
+
+.list-block .item-title{
+    text-overflow: unset !important;
+}
+
+.list-block .item-after{
+    white-space: unset !important;
+    max-height: 100% !important;
+    flex-shrink: 10 !important;
+}
+

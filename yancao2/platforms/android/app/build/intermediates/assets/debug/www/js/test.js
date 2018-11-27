@@ -9,9 +9,9 @@ var tag; //the nfc tag
 
 //error vrs update 
 var VRS_RPT_ERR = {
-  ITCERR: 2,
-  IVALID_PASS: 3,
-  IVALID_PACK: 4,
+  ITCERR: 1,
+  IVALID_PASS: 2,
+  IVALID_PACK: 3,
 };
 
 //tag information collection
@@ -858,7 +858,8 @@ var createSession = function (tag_itcid) {
   glb_recordid = "";
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.timeout = 5000;
+    // xmlhttp.timeout = 5000;
+    xmlhttp.timeout = 25000;
 
     xmlhttp.onreadystatechange = function () {
       //myApp.alert(this.readyState);
@@ -898,7 +899,7 @@ var createSession = function (tag_itcid) {
             sessionRsp.Latitude = obj.Location.GPS.Latitude;
             logMyFunc("latitude :" + sessionRsp.Latitude);
             sessionRsp.Longitude = obj.Location.GPS.Longitude;
-            sessionRsp.Address = obj.Address;
+            sessionRsp.Address = obj.Location.Address;
             // testobj.VendorIcon = obj.ProductInfo.VendorIcon;
             // testobj.Icon = obj.ProductInfo.Icon;
             // testobj.VendorIcon = "http://106.14.1.85:8591/static/img/jt-vendor.jpg";
@@ -1033,7 +1034,7 @@ var detectFalseReason = function(data){
     case 4:
       return "数字签名定伪";
     case 5:
-      return "防伪技术定伪" 
+      return "防伪计数定伪";
     default:
       return "查询异常";
     
@@ -1076,18 +1077,23 @@ var do_autherr_proc = function(error_num,whyfalse){
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             var failreason = dataFalse;
-          //   dataFalse={
-          //     Result: '仿造',
-          //     Username:'User001',
-          //     Date: "2018-08-16 16:24:03",
-          //     Addr: "上海市浦东新区永泰路1757号",
-          //     ITCID: 'J4IW56VI9EVS87UGB1F92X',
-          //     WhyFalse:'Count定伪'
-          // };
-            failreason.Addr = obj.Address;
+
+
+        //   dataFalse={
+        //     Result: '仿造',
+        //     Username:'User001',
+        //     Date: "2018-08-16 16:24:03",
+        //     Addr: "上海市浦东新区永泰路1757号,上海市浦东新区永泰路1757号,上海市浦东新区永泰路1757号",
+        //     ITCID: 'J4IW56VI9EVS87UGB1F92X',
+        //     WhyFalse:'Count定伪',
+        //     Des:replaceN("标签访问计数器值为：10\n后台访问计数器值为：11\n由于10<11，标签有可能是仿造的，商品有仿冒嫌疑")
+        // };
             failreason.Date = obj.Time;
+            failreason.Addr = obj.Location.Address;
+            failreason.Username = obj.UserID;
             failreason.ITCID = obj.ITCID.toUpperCase();
             failreason.WhyFalse = detectFalseReason(obj.Result);
+            failreason.Des = replaceN(obj.Detail);
             ViewToResultFalse(failreason);
             
             
@@ -1508,13 +1514,15 @@ var request_tagcnt_chk = function(itc_count){
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             logMyFunc("result ",obj.Result);
-            if((obj.Result!=-1)&&(obj.Result!=0)){
-              // if(obj.Result!=0){
+            // if((obj.Result!=-1)&&(obj.Result!=0)){
+              if(obj.Result!=0){
               var failreason = dataFalse;
-              failreason.Addr = obj.Address;
+              failreason.Addr = obj.Location.Address;
               failreason.Date = obj.Time;
+              failreason.Username = obj.UserID;
               failreason.ITCID = obj.ITCID.toUpperCase();
               failreason.WhyFalse = detectFalseReason(obj.Result);
+              failreason.Des = replaceN(obj.Detail);
               ViewToResultFalse(failreason);
               // if(obj.Result==5){
               //   var failreason = dataFalse;
@@ -1655,10 +1663,12 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
             logMyFunc("result ",obj.Result);
             if((obj.Result!=-1)&&(obj.Result!=0)){
               var failreason = dataFalse;
-              failreason.Addr = obj.Address;
+              failreason.Addr = obj.Location.Address;
               failreason.Date = obj.Time;
+              failreason.Username = obj.UserID;
               failreason.ITCID = obj.ITCID.toUpperCase();
               failreason.WhyFalse = detectFalseReason(obj.Result);
+              failreason.Des = replaceN(obj.Detail);
               ViewToResultFalse(failreason);
               // if(obj.Result==4){
               //   // var failreason = dataFalse;
