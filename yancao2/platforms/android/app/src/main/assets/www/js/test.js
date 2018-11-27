@@ -244,13 +244,13 @@ function onGeoError(error) {
   
     switch(error.code){
     case error.TIMEOUT :
-        alert( " 连接超时，请重试 " );
+        logMyFunc( " 获取位置超时，请重试 " );
         break;
     case error.PERMISSION_DENIED :
         alert( " 您拒绝了使用位置共享服务，查询已取消 " );
         break;
     case error.POSITION_UNAVAILABLE : 
-        alert( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
+        logMyFunc( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
         break;
 }
   logMyFunc('位置获取错误: ' + error.code + '\n' + '消息: ' + error.message + '\n');
@@ -892,7 +892,7 @@ var createSession = function (tag_itcid) {
               goIndexPage();
               return;
             }
-            sessionRsp.ITCID = obj.ITCID;
+            sessionRsp.ITCID = obj.ITCID.toUpperCase();
             sessionRsp.Time = obj.Time;
             sessionRsp.UserID = obj.UserID;
             sessionRsp.Latitude = obj.Location.GPS.Latitude;
@@ -1021,6 +1021,25 @@ var createSession = function (tag_itcid) {
 }
 
 
+//detect failure result
+var detectFalseReason = function(data){
+  switch(data){
+    case 1:
+      return "商品身份定伪";
+    case 2:
+      return "密码安全定伪";
+    case 3:
+      return "密码应答定伪";
+    case 4:
+      return "数字签名定伪";
+    case 5:
+      return "防伪技术定伪" 
+    default:
+      return "查询异常";
+    
+  }
+}
+
 //send data to servers
 var wrongitc_rptbegin;
 var wrongitc_rptend;
@@ -1057,7 +1076,18 @@ var do_autherr_proc = function(error_num,whyfalse){
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             var failreason = dataFalse;
-            failreason.WhyFalse = whyfalse;
+          //   dataFalse={
+          //     Result: '仿造',
+          //     Username:'User001',
+          //     Date: "2018-08-16 16:24:03",
+          //     Addr: "上海市浦东新区永泰路1757号",
+          //     ITCID: 'J4IW56VI9EVS87UGB1F92X',
+          //     WhyFalse:'Count定伪'
+          // };
+            failreason.Addr = obj.Address;
+            failreason.Date = obj.Time;
+            failreason.ITCID = obj.ITCID.toUpperCase();
+            failreason.WhyFalse = detectFalseReason(obj.Result);
             ViewToResultFalse(failreason);
             
             
@@ -1069,8 +1099,8 @@ var do_autherr_proc = function(error_num,whyfalse){
             logMyFunc("my tag server 网络错误代码2:" + this.status);
             setTimeout(function () {
               myApp.closeModal();
-              ViewToResultFalse(dataFalse);
-              // goIndexPage();
+              // ViewToResultFalse(dataFalse);
+              goIndexPage();
             }, 2000);
           }
         } else {
@@ -1081,8 +1111,8 @@ var do_autherr_proc = function(error_num,whyfalse){
           logMyFunc("my tag server 网络错误代码:" + this.status);
           setTimeout(function () {
             myApp.closeModal();
-            ViewToResultFalse(dataFalse);
-            // goIndexPage();
+            // ViewToResultFalse(dataFalse);
+            goIndexPage();
           }, 2000);
         }
       }
@@ -1096,8 +1126,8 @@ var do_autherr_proc = function(error_num,whyfalse){
       logMyFunc("访问超时2" + e + "请确保网络打开");
       setTimeout(function () {
         myApp.closeModal();
-        ViewToResultFalse(dataFalse);
-        // goIndexPage();
+        // ViewToResultFalse(dataFalse);
+        goIndexPage();
       }, 2000);
     };
     xmlhttp.onerror = function (e) {
@@ -1105,8 +1135,8 @@ var do_autherr_proc = function(error_num,whyfalse){
       // regNFCinMid();
       // myApp.alert("访问错误2"+e+"请确保网络打开");
       logMyFunc("访问错误2" + e + "请确保网络打开");
-      ViewToResultFalse(dataFalse);
-      // goIndexPage();
+      // ViewToResultFalse(dataFalse);
+      goIndexPage();
       /* setTimeout(function () {
          myApp.closeModal();
        }, 2000);*/
@@ -1186,7 +1216,7 @@ var request_passwd = function(tag_itcid){
             sessionRsp.CommodityName = obj.CommodityName;
             sessionRsp.ManuPlace = obj.Place;
             sessionRsp.ManuDate = obj.Date;
-            sessionRsp.ITCID = obj.ITCID;
+            sessionRsp.ITCID = obj.ITCID.toUpperCase();
             logMyFunc("customid: "+sessionRsp.CustomerID);
             // pswd = "11223344";
             // pack = "AABB";//"AADD";//"AABB";
@@ -1317,6 +1347,7 @@ var readsigfunc = function(passwd){
     var authfailure = function(reason) {
       myApp.alert("有些问题: " + "刷的时候请不要挪开手机。");
       // nfc.removeTagListerner();
+      goIndexPage();
     };
   
     var authSuccess = function() {
@@ -1348,10 +1379,10 @@ var nfcCallbk = function (nfcEvent) {
   tag = nfcEvent.tag;
   if(tag.errCode!=""){
     if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
-      itcidpara = "45678AABB";
+      itcidpara = "";
     }else{
       logMyFunc("error:"+tag.errCode);
-      itcidpara = "1234AABB";
+      itcidpara = "";
     }
   }else{
     logMyFunc("sig " + nfcEvent.tag.sig);
@@ -1435,7 +1466,7 @@ var do_cortag_show = function(){
   logMyFunc("product: "+realshow.Product);
   realshow.ManufactureAddr = sessionRsp.ManuPlace;
   realshow.ManufactureDate = sessionRsp.ManuDate;
-  realshow.ITCID = sessionRsp.ITCID;
+  realshow.ITCID = sessionRsp.ITCID.toUpperCase();
   realshow.MAddr = sessionRsp.CustomerName;
   //do request to get more commodity informations
   ViewToResultTure(realshow);
@@ -1478,15 +1509,22 @@ var request_tagcnt_chk = function(itc_count){
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             logMyFunc("result ",obj.Result);
             if((obj.Result!=-1)&&(obj.Result!=0)){
-              if(obj.Result==5){
-                var failreason = dataFalse;
-                failreason.WhyFalse = "Invalid Count错误";
-                ViewToResultFalse(failreason);
-              }else{
-                var failreason = dataFalse;
-                failreason.WhyFalse = "未知错误";
-                ViewToResultFalse(failreason);
-              }
+              // if(obj.Result!=0){
+              var failreason = dataFalse;
+              failreason.Addr = obj.Address;
+              failreason.Date = obj.Time;
+              failreason.ITCID = obj.ITCID.toUpperCase();
+              failreason.WhyFalse = detectFalseReason(obj.Result);
+              ViewToResultFalse(failreason);
+              // if(obj.Result==5){
+              //   var failreason = dataFalse;
+              //   failreason.WhyFalse = "Invalid Count错误";
+              //   ViewToResultFalse(failreason);
+              // }else{
+              //   var failreason = dataFalse;
+              //   failreason.WhyFalse = "未知错误";
+              //   ViewToResultFalse(failreason);
+              // }
               return;
             }
            
@@ -1616,15 +1654,21 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             logMyFunc("result ",obj.Result);
             if((obj.Result!=-1)&&(obj.Result!=0)){
-              if(obj.Result==4){
-                var failreason = dataFalse;
-                failreason.WhyFalse = "DS错误";
-                ViewToResultFalse(failreason);
-              }else{
-                var failreason = dataFalse;
-                failreason.WhyFalse = "未知错误";
-                ViewToResultFalse(failreason);
-              }
+              var failreason = dataFalse;
+              failreason.Addr = obj.Address;
+              failreason.Date = obj.Time;
+              failreason.ITCID = obj.ITCID.toUpperCase();
+              failreason.WhyFalse = detectFalseReason(obj.Result);
+              ViewToResultFalse(failreason);
+              // if(obj.Result==4){
+              //   // var failreason = dataFalse;
+              //   failreason.WhyFalse = "DS错误";
+              //   ViewToResultFalse(failreason);
+              // }else{
+               
+              //   failreason.WhyFalse = "未知错误";
+              //   ViewToResultFalse(failreason);
+              // }
               return;
             }
            

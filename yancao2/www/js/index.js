@@ -343,6 +343,8 @@ myApp.onPageInit('resultFalse', function (page) {
     });
 });
 
+var glb_initnfc = false;  //glb_initnfc is avoid return from function to call this pageinit 
+//to do register NFC twice
 //靠一靠的回调函数，页面切换至nfsviews.html
 myApp.onPageInit('nfsviews', function (page) {
     var animData = {
@@ -354,8 +356,13 @@ myApp.onPageInit('nfsviews', function (page) {
         path: 'data/nfs.json'
 
     };
+    // logMyFunc("test: why here");
     var anim = bodymovin.loadAnimation(animData);
-    setTimeout(startNFC, 500);
+    if(glb_initnfc==false){
+        setTimeout(startNFC, 500);
+        glb_initnfc = true;
+    }
+    
     $$('.home-click').on('click', function () {
         
         mainView.router.load({
