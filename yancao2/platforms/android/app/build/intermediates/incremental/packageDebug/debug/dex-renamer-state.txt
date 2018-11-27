@@ -1,4 +1,4 @@
-#Tue Nov 27 19:14:29 GMT+08:00 2018
+#Tue Nov 27 19:37:37 GMT+08:00 2018
 base.0=D\:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

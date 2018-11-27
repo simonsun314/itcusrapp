@@ -859,7 +859,7 @@ var createSession = function (tag_itcid) {
   if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
     // xmlhttp.timeout = 5000;
-    xmlhttp.timeout = 25000;
+    xmlhttp.timeout = 10000;
 
     xmlhttp.onreadystatechange = function () {
       //myApp.alert(this.readyState);
@@ -1335,7 +1335,7 @@ var readsigfunc = function(passwd){
   //pwsswd = "11223a44";
   // var tmp = "11223344";
    var record2 = passwd;  //'99 99 06 0f';parseHexString(passwd);//'11 22 33 44';
-  myApp.alert("pass get1 "+record2);
+  logMyFunc("pass get1 "+record2);
   if(record2.length!=12){ //get error password or no passwd
     do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
     return;
@@ -1362,10 +1362,10 @@ var readsigfunc = function(passwd){
     };
   
     logMyFunc("read again");
-    setTimeout(function () {  //delay for debug tag
+    // setTimeout(function () {  //delay for debug tag
     nfc.readAuthTag(record2,readAuthCallbk, authSuccess, authfailure);
       
-    }, 3000);
+    // }, 3000);
 }
 
 // nfcCallbk
@@ -2029,7 +2029,7 @@ var logMyFunc = function (x) {
 
     window.logToFile.debug(x);
   }else{
-    myApp.alert(x);
+    // myApp.alert(x);
   }
 }
 
