@@ -1463,18 +1463,30 @@ var nfcCallbk = function (nfcEvent) {
 
 }
 
+// dataTrue={
+//   Result: '正品',
+//   Date: "2018-08-16 16:24:03",
+//   Addr: "上海市浦东新区永泰路1757号",
+//   Product: 'XXXXXXX',
+//   ProduceAddr:"上海浦东",
+//   ManufactureAddr:'上海',
+//   ManufactureDate:'2016-01-10',
+//   ITCID:'J4IW56VI9EVS87UGB1F92X'
+// };
+
 // request and show right data
 var do_cortag_show = function(){
   var realshow = dataTrue;
   realshow.Date = sessionRsp.Time;
   realshow.Addr = sessionRsp.Address;
   // realshow.Product = sessionRsp.CustomerName;
-  realshow.MDate = sessionRsp.CommodityName;
+  realshow.Product = sessionRsp.CommodityName;
   logMyFunc("product: "+realshow.Product);
-  realshow.ManufactureAddr = sessionRsp.ManuPlace;
+  realshow.ProduceAddr = sessionRsp.ManuPlace;
+  realshow.ManufactureAddr = sessionRsp.CustomerName;
   realshow.ManufactureDate = sessionRsp.ManuDate;
   realshow.ITCID = sessionRsp.ITCID.toUpperCase();
-  realshow.MAddr = sessionRsp.CustomerName;
+  // realshow.MAddr = sessionRsp.CustomerName;
   //do request to get more commodity informations
   ViewToResultTure(realshow);
 
