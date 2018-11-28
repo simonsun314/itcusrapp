@@ -1465,8 +1465,8 @@ var nfcCallbk = function (nfcEvent) {
     itcidpara = nfcEvent.tag.itcidval.toLowerCase();
   }
   
-  // getPosbeforeHttp();
-  createSession(itcidpara);
+  getPosbeforeHttp();
+  // createSession(itcidpara);
   //first create itc log 
 // {
 //   "ITCID": "12345ABC",
