@@ -140,7 +140,7 @@ dataTrue={
     ITCID:'J4IW56VI9EVS87UGB1F92X'
 };
 function ViewToResultTure(data) {
-	myApp.hidePreloader();
+	// myApp.hidePreloader();
     mainView.router.load({
         url: 'resultTrue.html',
         context: data,
@@ -150,7 +150,7 @@ function ViewToResultTure(data) {
 }
 
 function ViewToResultTureHome(data) {
-	myApp.hidePreloader();
+	// myApp.hidePreloader();
     mainView.router.load({
         url: 'resultTrue.html',
         context: data,

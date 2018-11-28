@@ -126,6 +126,7 @@ var onGeoSuccess = function (position) {
             'Speed: '             + position.coords.speed             + '\n' +
             'Timestamp: '         + position.timestamp                + '\n');
   //getPos();
+  
   registerNFC();
 }
 
@@ -273,11 +274,55 @@ function getPos() {
     */
   // myApp.alert(navigator.geolocation);
   // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { enableHighAccuracy: true });
-
-  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 10000, enableHighAccuracy: true });
+  // myApp.showPreloader();
+  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
 }
 
 
+
+var onGeobeforeHttpSuccess = function (position) {
+  tag_lat = position.coords.latitude;
+  tag_lon = position.coords.longitude;
+  // myApp.hidePreloader();
+  
+      // logMyFunc('Latitude: '          + position.coords.latitude          + '\n' +
+      //       'Longitude: '         + position.coords.longitude         + '\n' +
+      //       'Altitude: '          + position.coords.altitude          + '\n' +
+      //       'Accuracy: '          + position.coords.accuracy          + '\n' +
+      //       'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+      //       'Heading: '           + position.coords.heading           + '\n' +
+      //       'Speed: '             + position.coords.speed             + '\n' +
+      //       'Timestamp: '         + position.timestamp                + '\n');
+            
+  //getPos();
+  createSession(itcidpara);
+
+}
+
+
+
+function onGeobeforeHttpError(error) {
+
+
+  tag_lon = 0;
+  tag_lat = 0;
+  // myApp.hidePreloader();
+  /*
+        switch(error.code){
+          case error.TIMEOUT :
+              alert( " 连接超时，请重试 " );
+              break;
+          case error.PERMISSION_DENIED :
+              alert( " 您拒绝了使用位置共享服务，查询已取消 " );
+              break;
+          case error.POSITION_UNAVAILABLE : 
+              alert( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
+              break;
+      }*/
+  logMyFunc('2位置获取错误: ' + error.code + '\n' + '消息2: ' + error.message + '\n');
+  createSession(itcidpara);
+
+}
 
 var onGeo2Success = function (position) {
   tag_lat = position.coords.latitude;
@@ -331,7 +376,19 @@ function getPos2() {
   navigator.geolocation.getCurrentPosition(onGeo2Success, onGeo2Error, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
 }
 
+/*start get pos and first time will check the permission request and check if will go on http request*/
+function getPosbeforeHttp() {
 
+  /*  $$(document).addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        myApp.alert("navigator.geolocation works well");
+    }
+    */
+  // myApp.alert(navigator.geolocation);
+  
+  // myApp.showPreloader();
+  navigator.geolocation.getCurrentPosition(onGeobeforeHttpSuccess, onGeobeforeHttpError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
+}
 
 var tag_date;
 
@@ -853,7 +910,7 @@ var createSession = function (tag_itcid) {
   var xmlhttp;
   var restfulapi = "/api/v1/vrs/records"
   var targetUrladdr = urlVerifyServer+restfulapi+tokenval;
-  logMyFunc("itcid: " + tag_itcid);
+  logMyFunc("itcid to snd: " + tag_itcid);
   logMyFunc("targeturl: " + targetUrladdr );
   clearSessionData();
   glb_recordid = "";
@@ -1315,9 +1372,13 @@ var request_passwd = function(tag_itcid){
 var ITCD_verify = function(tag_itcid){
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   if(tag.errCode!=""){
-    logMyFunc("upload itc id validate error");
-    //upload data to server
-    do_autherr_proc(VRS_RPT_ERR.ITCERR,"ITC验证错误");
+    if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
+      logMyFunc("upload itc id validate error");
+      //upload data to server
+      do_autherr_proc(VRS_RPT_ERR.ITCERR,"ITC验证错误");
+    }else{
+      goIndexPage();
+    }
     return;
     // logMyFunc("can I be here?");
   }
@@ -1352,7 +1413,7 @@ var readsigfunc = function(passwd){
 
 
     var authfailure = function(reason) {
-      myApp.alert("有些问题: " + "刷的时候请不要挪开手机。");
+      logMyFunc("有些问题: " + "刷的时候请不要挪开手机。");
       // nfc.removeTagListerner();
       goIndexPage();
     };
@@ -1374,6 +1435,7 @@ var readsigfunc = function(passwd){
 // do second time connection to upload itc head
 // do get auth password
 // and then do nfc read with auth
+var itcidpara = "";
 var nfcCallbk = function (nfcEvent) {
   nfc.removeTagDiscoveredListener(nfcCallbk, function () {
     // alert("unregister success\n");
@@ -1381,7 +1443,7 @@ var nfcCallbk = function (nfcEvent) {
     function (error) {
       // alert("unregister failure \n"+error);
     });
-    var itcidpara = 0;
+    itcidpara = "";
   // if(nfcEvent==100)return;
   tag = nfcEvent.tag;
   if(tag.errCode!=""){
@@ -1403,7 +1465,8 @@ var nfcCallbk = function (nfcEvent) {
     itcidpara = nfcEvent.tag.itcidval.toLowerCase();
   }
   
-  
+  // getPosbeforeHttp();
+  createSession(itcidpara);
   //first create itc log 
 // {
 //   "ITCID": "12345ABC",
@@ -1421,7 +1484,7 @@ var nfcCallbk = function (nfcEvent) {
 
 // readsigfunc("11223344");
   // createSession(nfcEvent.tag.itcidval.toLowerCase());
-  createSession(itcidpara);
+  // createSession(itcidpara);
   
   // if((tag.errCode=="invalid ITCID len")||(tag.errCode=="invalid BCC")){
   //   logMyFunc("upload itc id validate error");
@@ -1526,7 +1589,7 @@ var request_tagcnt_chk = function(itc_count){
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
-            logMyFunc("result ",obj.Result);
+            logMyFunc("result "+obj.Result);
             // if((obj.Result!=-1)&&(obj.Result!=0)){
               if(obj.Result!=0){
               var failreason = dataFalse;
@@ -1546,6 +1609,7 @@ var request_tagcnt_chk = function(itc_count){
               //   failreason.WhyFalse = "未知错误";
               //   ViewToResultFalse(failreason);
               // }
+              // alert("here");
               return;
             }
            
@@ -2243,20 +2307,23 @@ var registerNfcMime = function () {
 /*register tag nfc call back and return error when nfc close*/
 var registerNFC = function () {
    logMyFunc("register NFC");
+  // myApp.alert("register NFC");
 
   nfc.addTagDiscoveredListener(nfcCallbk,
     function () { // success callback
       logMyFunc("Waiting for tag");
+      // myApp.alert("Waiting for tag");
       //myApp.alert(nfcEvent);
       //alert(nfcEvent.tag.sig);
       //registerNfcMime();
       // checkNfcAuthor();
+      // myApp.hidePreloader();
     },
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
       myApp.alert("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
       myApp.confirm("<font color=black size=4>NFC未打开，为保证程序能正常运行，请打开NFC</font>", nfcOpenCBOK, nfcOpenCBCancel);
-      
+      // myApp.hidePreloader();
       // mainView.router.load({
       //   url: 'index.html'
       // });
