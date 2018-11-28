@@ -28,12 +28,17 @@
         <preference name="ShowSplashScreenSpinner" value="false" />
         <preference name="SplashShowOnlyFirstTime" value="false" />
         <preference name="Orientation" value="portrait" />
+        <icon density="ldpi" src="www/applog.jpg" />
+        <icon density="mdpi" src="www/applog.jpg" />
+        <icon density="hdpi" src="www/applog.jpg" />
+        <icon density="xhdpi" src="www/applog.jpg" />
+        <icon density="xxhdpi" src="www/applog.jpg" />
+        <icon density="xxxhdpi" src="www/applog.jpg" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-imei" spec="^1.1.0" />
     <plugin name="cordova-plugin-opensettings" spec="^1.3.0" />
@@ -41,5 +46,6 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova.plugins.diagnostic" spec="^4.0.10" />
     <plugin name="phonegap-nfc" spec="..\..\itcntg\phonegap-nfc-master" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <engine name="android" spec="^7.1.2" />
 </widget>

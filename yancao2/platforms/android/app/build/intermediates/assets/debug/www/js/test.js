@@ -272,8 +272,9 @@ function getPos() {
     }
     */
   // myApp.alert(navigator.geolocation);
+  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { enableHighAccuracy: true });
 
-  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 0, timeout: 3000, enableHighAccuracy: true });
+  // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 0, timeout: 3000, enableHighAccuracy: true });
 }
 
 
@@ -2134,11 +2135,11 @@ var checkNfcAuthor = function () {
   //noway to check authority
   //getPos();
   //do nothing just wait NFC scan tag
-  setTimeout(function () {
-    mainView.router.load({
-      url: 'home.html'
-    });
-  }, 2000);
+  // setTimeout(function () {
+  //   mainView.router.load({
+  //     url: 'home.html'
+  //   });
+  // }, 2000);
 
 }
 
@@ -2242,9 +2243,11 @@ var registerNFC = function () {
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
       myApp.alert("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
-      mainView.router.load({
-        url: 'index.html'
-      });
+      myApp.confirm("<font color=black size=4>NFC未打开，为保证程序能正常运行，请打开NFC</font>", nfcOpenCBOK, nfcOpenCBCancel);
+      
+      // mainView.router.load({
+      //   url: 'index.html'
+      // });
       // registerNfcMime();
       /*
       setTimeout(function () {

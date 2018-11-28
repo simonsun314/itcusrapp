@@ -7,14 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-geolocation": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-geolocation@4.0.1"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
@@ -67,6 +59,14 @@
     "source": {
       "type": "local",
       "path": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\node_modules\\phonegap-nfc"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@4.0.1"
     },
     "is_top_level": true,
     "variables": {}

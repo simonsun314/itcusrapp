@@ -385,8 +385,9 @@ myApp.onPageInit('nfsviews', function (page) {
     // logMyFunc("test: why here");
     var anim = bodymovin.loadAnimation(animData);
     if(glb_initnfc==false){
-        setTimeout(startNFC, 500);
+        // setTimeout(startNFC, 500);
         glb_initnfc = true;
+        startNFC();
     }
     
     $$('.home-click').on('click', function () {
