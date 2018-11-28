@@ -245,7 +245,7 @@ function onGeoError(error) {
   
     switch(error.code){
     case error.TIMEOUT :
-        alert( " 获取位置超时，请重试 " );
+        logMyFunc( " 获取位置超时，请重试 " );
         break;
     case error.PERMISSION_DENIED :
         alert( " 您拒绝了使用位置共享服务，查询已取消 " );
