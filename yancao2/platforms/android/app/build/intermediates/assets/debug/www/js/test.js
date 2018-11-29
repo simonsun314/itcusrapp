@@ -1372,7 +1372,8 @@ var request_passwd = function(tag_itcid){
             //myApp.alert(result2);
             var obj = JSON.parse(sesRsp);
             if(obj.Ret!=0){
-              goIndexPage();
+              do_autherr_proc(VRS_RPT_ERR.ITCERR,"ITC验证错误");
+              // goIndexPage();
               return;
             }
             // testobj = obj;
