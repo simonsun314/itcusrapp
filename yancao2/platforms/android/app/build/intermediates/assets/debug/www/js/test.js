@@ -208,6 +208,37 @@ var locChksuccessCallback = function (authorized) {
   }
 }
 
+var sndPosCallbk = function(){
+
+}
+
+var sndPosOK = function(data){
+  logMyFunc("snd ok: "+data);
+  var locdata = data.split(/[,]/);
+  tag_lat = parseFloat(locdata[1]);
+  tag_lon = parseFloat(locdata[0]);
+  registerNFC();
+}
+var sndPOSfail = function(data){
+  logMyFunc("snd failure: "+data);
+  tag_lon = 0;
+  tag_lat = 0;
+  registerNFC();
+}
+
+var LocationChksuccessCallback = function (authorized) {
+
+  // logMyFunc("Location is " + (authorized ? "authorized" : "unauthorized"));
+  if (authorized) {
+    logMyFunc("Location is " + (authorized ? "authorized" : "unauthorized") + "but get value fail");
+    nfc.getPOS(sndPosCallbk,sndPosOK,sndPOSfail);
+
+  } else {
+    //jump to permission setting page and wait for return
+    myApp.confirm("<font color=black size=4>请授予位置权限，对于帮助查询信息非常重要</font>", posOpenCBOK, posOpenCBCancel);
+  }
+}
+
 /*check location permission fail just register NFC set address 0 0*/
 var locChkerrorCallback = function () {
   logMyFunc("cehck location authority meet the following error: " + error);
@@ -227,6 +258,13 @@ var checktimeofpos = 0;
 var checkGeoPermission = function () {
   //check permission
   cordova.plugins.diagnostic.isLocationAuthorized(locChksuccessCallback, locChkerrorCallback);
+
+
+}
+
+var checkGPSPermission = function () {
+  //check permission
+  cordova.plugins.diagnostic.isLocationAuthorized(LocationChksuccessCallback, locChkerrorCallback);
 
 
 }
@@ -295,12 +333,32 @@ function onLocationError(error) {
 
 }
 
+var getposCallbk = function(data){
+  myApp.alert("gps0"+data);
+}
+
+//data success string longtitude,latitude
+var getposSuccess = function(data){
+  logMyFunc("gps1"+data);
+  var locdata = data.split(/[,]/);
+  tag_lat = parseFloat(locdata[1]);
+  tag_lon = parseFloat(locdata[0]);
+
+  
+  registerNFC();
+}
+
+var getposfail = function(data){
+  logMyFunc("gpserr"+data);
+  checkGPSPermission();
+}
+
 /*start get pos and first time will check the permission request and check*/
 function getPos() {
 
   // setTimeout(function () {
-    nfc.getPOS();
-    registerNFC();
+    nfc.getPOS(getposCallbk,getposSuccess,getposfail);
+    // registerNFC();
   // }, 2000);
   /*  $$(document).addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
@@ -1095,7 +1153,8 @@ var createSession = function (tag_itcid) {
 
     //xmlhttp.setRequestHeader("'"Access-Control-Allow-Headers',"");
     //xmlhttp.send("{\n\"tap_properties:\"\n{\n}\n}");
-
+    // myApp.alert(tag_lon);
+    // myApp.alert(tag_lat);
     var tempdate = new Date();
     session_begtime = tempdate.getSeconds().toString() + "." + tempdate.getMilliseconds().toString();
     xmlhttp.send(JSON.stringify({
