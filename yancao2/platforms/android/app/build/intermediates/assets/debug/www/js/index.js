@@ -247,6 +247,7 @@ myApp.onPageInit('resultTrue', function (page) {
     });
 
     $$('.home-click').on('click', function () {
+        //back to home
         mainView.router.load({
             url: 'index.html'
         })
