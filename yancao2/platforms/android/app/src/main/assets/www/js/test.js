@@ -355,7 +355,7 @@ var getposfail = function(data){
 
 /*start get pos and first time will check the permission request and check*/
 function getPos() {
-
+  nfc.initGPS();
   // setTimeout(function () {
     nfc.getPOS(getposCallbk,getposSuccess,getposfail);
     // registerNFC();
@@ -1034,6 +1034,10 @@ var createSession = function (tag_itcid) {
             //myApp.alert(result2);
             var obj = JSON.parse(sesRsp);
             // testobj = obj;
+            if(obj.Ret!=0){
+              goIndexPage();
+              return;
+            }
             sessionRsp.RecordID = obj.RecordID;
             glb_recordid = sessionRsp.RecordID;
             logMyFunc("session id:" + glb_recordid);
@@ -1232,7 +1236,10 @@ var do_autherr_proc = function(error_num,whyfalse){
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
             var failreason = dataFalse;
-
+            if(obj.Ret!=0){
+              goIndexPage();
+              return;
+            }
 
         //   dataFalse={
         //     Result: '仿造',
@@ -1364,6 +1371,10 @@ var request_passwd = function(tag_itcid){
 
             //myApp.alert(result2);
             var obj = JSON.parse(sesRsp);
+            if(obj.Ret!=0){
+              goIndexPage();
+              return;
+            }
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             var pswd =  obj.Password;
@@ -1686,6 +1697,10 @@ var request_tagcnt_chk = function(itc_count){
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
+            if(obj.Ret!=0){
+              goIndexPage();
+              return;
+            }
             logMyFunc("result "+obj.Result);
             // if((obj.Result!=-1)&&(obj.Result!=0)){
               if(obj.Result!=0){
@@ -1831,6 +1846,10 @@ var check_tag_sig_fromSrv = function(itc_signature,itc_count){
 
             //myApp.alert(result2);
             var obj = JSON.parse(sesRsp);
+            if(obj.Ret!=0){
+              goIndexPage();
+              return;
+            }
             // testobj = obj;
             // dataFalse.ITCID = obj.UserID;
             // logMyFunc("server back user id:" + dataFalse.ITCID);
@@ -2176,6 +2195,7 @@ var startNFC = function () {
       //  myApp.alert("error loading imei");
     }
   );
+ 
   beginNFCListen();
   // window.logToFile.setLogfilePath('/3Japp/log.txt', function () {
   //   // logger configured successfully
