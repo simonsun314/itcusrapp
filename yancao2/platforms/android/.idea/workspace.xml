@@ -36,8 +36,8 @@
       <file leaf-file-name="NfcPlugin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="1088" column="59" selection-start-line="1088" selection-start-column="59" selection-end-line="1088" selection-end-column="59" />
+            <state relative-caret-position="76">
+              <caret line="1091" column="13" lean-forward="true" selection-start-line="1091" selection-start-column="13" selection-end-line="1091" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#25229#25230#0" expanded="true" />
@@ -52,7 +52,6 @@
                 <element signature="e#29338#29339#0" expanded="true" />
                 <element signature="e#29380#29381#0" expanded="true" />
                 <element signature="e#29439#29440#0" expanded="true" />
-                <element signature="e#61614#61672#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +60,7 @@
       <file leaf-file-name="ITCDescriptor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCDescriptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
+            <state relative-caret-position="798">
               <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
               <folding>
                 <element signature="e#1375#1376#0" expanded="true" />
@@ -3130,6 +3129,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -3196,8 +3197,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3384,8 +3383,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
@@ -3395,12 +3395,12 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32885906" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.37080538" />
+      <window_info anchor="bottom" id="Logcat" order="10" weight="0.37080538" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49066666" visible="true" weight="0.24962178" />
-      <window_info anchor="bottom" id="Build" order="11" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Build" order="11" visible="true" weight="0.32885906" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" weight="0.39932886" />
@@ -3684,10 +3684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-          <folding>
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3777,7 +3773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/tdk/ITCDescriptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="798">
           <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
           <folding>
             <element signature="e#1375#1376#0" expanded="true" />
@@ -3790,8 +3786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="1088" column="59" selection-start-line="1088" selection-start-column="59" selection-end-line="1088" selection-end-column="59" />
+        <state relative-caret-position="76">
+          <caret line="1091" column="13" lean-forward="true" selection-start-line="1091" selection-start-column="13" selection-end-line="1091" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#25229#25230#0" expanded="true" />
@@ -3806,7 +3802,6 @@
             <element signature="e#29338#29339#0" expanded="true" />
             <element signature="e#29380#29381#0" expanded="true" />
             <element signature="e#29439#29440#0" expanded="true" />
-            <element signature="e#61614#61672#1" expanded="true" />
           </folding>
         </state>
       </provider>

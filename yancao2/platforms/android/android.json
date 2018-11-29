@@ -39,6 +39,10 @@
             {
               "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"LocationServices\"><param name=\"android-package\" value=\"fr.louisbl.cordova.locationservices.CordovaLocationServices\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -48,11 +52,11 @@
           "/*": [
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-              "count": 2
+              "count": 4
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-              "count": 2
+              "count": 4
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
@@ -64,11 +68,11 @@
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
-              "count": 2
+              "count": 3
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 1
+              "count": 3
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.NETWORK_ACCESS\" />",
@@ -76,7 +80,7 @@
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-              "count": 1
+              "count": 2
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_LOCATION_EXTRA_COMMANDS\" />",
@@ -94,6 +98,26 @@
             },
             {
               "xml": "<uses-feature android:name=\"android.hardware.nfc\" android:required=\"false\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
               "count": 1
             }
           ],
@@ -177,6 +201,9 @@
       "PACKAGE_NAME": "com.yancao.cc"
     },
     "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-locationservices": {
       "PACKAGE_NAME": "com.yancao.cc"
     }
   },
@@ -329,6 +356,42 @@
       "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
       "pluginId": "cordova-plugin-geolocation",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-locationservices.Coordinates",
+      "file": "plugins/cordova-plugin-locationservices/www/Coordinates.js",
+      "pluginId": "cordova-plugin-locationservices",
+      "clobbers": [
+        "cordova.plugins.locationServices.Coordinates",
+        "plugin.locationServices.Coordinates"
+      ]
+    },
+    {
+      "id": "cordova-plugin-locationservices.PositionError",
+      "file": "plugins/cordova-plugin-locationservices/www/PositionError.js",
+      "pluginId": "cordova-plugin-locationservices",
+      "clobbers": [
+        "cordova.plugins.locationServices.PositionError",
+        "plugin.locationServices.PositionError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-locationservices.Position",
+      "file": "plugins/cordova-plugin-locationservices/www/Position.js",
+      "pluginId": "cordova-plugin-locationservices",
+      "clobbers": [
+        "cordova.plugins.locationServices.PositionError",
+        "plugin.locationServices.PositionError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-locationservices.LocationServices",
+      "file": "plugins/cordova-plugin-locationservices/www/LocationServices.js",
+      "pluginId": "cordova-plugin-locationservices",
+      "clobbers": [
+        "cordova.plugins.locationServices.geolocation",
+        "plugin.locationServices.geolocation"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -340,6 +403,7 @@
     "cordova-plugin-whitelist": "1.3.3",
     "cordova.plugins.diagnostic": "4.0.10",
     "phonegap-nfc": "1.0.3",
-    "cordova-plugin-geolocation": "4.0.1"
+    "cordova-plugin-geolocation": "4.0.1",
+    "cordova-plugin-locationservices": "2.1.0"
   }
 }

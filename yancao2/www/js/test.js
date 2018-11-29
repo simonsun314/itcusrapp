@@ -117,7 +117,7 @@ var onGeoSuccess = function (position) {
       //       'Heading: '           + position.coords.heading           + '\n' +
       //       'Speed: '             + position.coords.speed             + '\n' +
       //       'Timestamp: '         + position.timestamp                + '\n');
-  logMyFunc('Latitude: '          + position.coords.latitude          + '\n' +
+  myApp.alert('Latitude: '          + position.coords.latitude          + '\n' +
             'Longitude: '         + position.coords.longitude         + '\n' +
             'Altitude: '          + position.coords.altitude          + '\n' +
             'Accuracy: '          + position.coords.accuracy          + '\n' +
@@ -245,7 +245,7 @@ function onGeoError(error) {
   
     switch(error.code){
     case error.TIMEOUT :
-        logMyFunc( " 获取位置超时，请重试 " );
+        alert( " 获取位置超时，请重试 " );
         break;
     case error.PERMISSION_DENIED :
         alert( " 您拒绝了使用位置共享服务，查询已取消 " );
@@ -254,7 +254,38 @@ function onGeoError(error) {
         logMyFunc( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
         break;
 }
-  logMyFunc('位置获取错误: ' + error.code + '\n' + '消息: ' + error.message + '\n');
+  myApp.alert('位置获取错误: ' + error.code + '\n' + '消息: ' + error.message + '\n');
+  checktimeofpos = 0;
+  //posintervalID =  setInterval(checkGeoPermission,2000);
+  checkGeoPermission();
+  //now data error,just use 0,0
+
+
+
+}
+
+function onLocationError(error) {
+
+  /*2 case
+  1: no authority
+  2: get pos error
+  to 1 check for 10 seconds and 
+  then it be 2 we just use 0,0
+  */
+  //delay and check permission loop for 10 seconds
+  
+    switch(error.code){
+    case cordova.plugins.locationServices.PositionError.TIMEOUT :
+        alert( " 获取位置超时，请重试 " );
+        break;
+    case cordova.plugins.locationServices.PositionError.PERMISSION_DENIED :
+        alert( " 您拒绝了使用位置共享服务，查询已取消 " );
+        break;
+    case cordova.plugins.locationServices.PositionError.POSITION_UNAVAILABLE : 
+        logMyFunc( " 亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
+        break;
+}
+  myApp.alert('位置获取错误: ' + error.code + '\n' + '消息: ' + error.message + '\n');
   checktimeofpos = 0;
   //posintervalID =  setInterval(checkGeoPermission,2000);
   checkGeoPermission();
@@ -275,7 +306,8 @@ function getPos() {
   // myApp.alert(navigator.geolocation);
   // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { enableHighAccuracy: true });
   // myApp.showPreloader();
-  navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
+  // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
+  cordova.plugins.locationServices.geolocation.getCurrentPosition(onGeoSuccess, onLocationError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true});
 }
 
 

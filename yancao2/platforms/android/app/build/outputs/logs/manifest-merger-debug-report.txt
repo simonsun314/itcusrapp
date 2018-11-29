@@ -5,6 +5,11 @@ INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android
 INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
 INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\b4b6a9ce7cb69f29b1b4bc53e9a9b6ef\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\94e89b4268ebb2bba61d5ba402c0fcd3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:17:1-31:12
 MERGED from [:CordovaLib] D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\c785cbe5df41f548132878f4b9b70031\AndroidManifest.xml:17:1-31:12
@@ -56,6 +61,16 @@ application
 ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:5-12:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:25:5-29:19
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\b4b6a9ce7cb69f29b1b4bc53e9a9b6ef\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\b4b6a9ce7cb69f29b1b4bc53e9a9b6ef\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\94e89b4268ebb2bba61d5ba402c0fcd3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\94e89b4268ebb2bba61d5ba402c0fcd3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\c785cbe5df41f548132878f4b9b70031\AndroidManifest.xml:25:5-29:19
@@ -114,6 +129,16 @@ uses-sdk
 ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:21:5-23:78
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\b4b6a9ce7cb69f29b1b4bc53e9a9b6ef\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\b4b6a9ce7cb69f29b1b4bc53e9a9b6ef\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\94e89b4268ebb2bba61d5ba402c0fcd3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\94e89b4268ebb2bba61d5ba402c0fcd3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:21:5-23:54
 MERGED from [:CordovaLib] D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
@@ -208,6 +233,20 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\simon\.gradle\c
 		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:28:13-35
 	android:name
 		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:27:13-51
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\28e4b8650b66ec6041f8f79c345ca662\AndroidManifest.xml:24:13-58
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\300ea52b128066aa0cc4811e37cc89ff\AndroidManifest.xml:25:9-27:47
 	android:value

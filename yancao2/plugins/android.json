@@ -33,6 +33,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "cordova-plugin-locationservices": {
+      "PACKAGE_NAME": "com.yancao.cc"
     }
   },
   "dependent_plugins": {}
