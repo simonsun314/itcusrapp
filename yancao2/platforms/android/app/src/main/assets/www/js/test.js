@@ -298,6 +298,10 @@ function onLocationError(error) {
 /*start get pos and first time will check the permission request and check*/
 function getPos() {
 
+  // setTimeout(function () {
+    nfc.getPOS();
+    registerNFC();
+  // }, 2000);
   /*  $$(document).addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         myApp.alert("navigator.geolocation works well");
@@ -307,7 +311,9 @@ function getPos() {
   // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { enableHighAccuracy: true });
   // myApp.showPreloader();
   // navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
-  cordova.plugins.locationServices.geolocation.getCurrentPosition(onGeoSuccess, onLocationError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: false});
+  
+  // cordova.plugins.locationServices.geolocation.getCurrentPosition(onGeoSuccess, onLocationError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true});
+    // nfc.initGPS();
 }
 
 

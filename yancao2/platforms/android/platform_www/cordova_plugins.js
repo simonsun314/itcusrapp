@@ -129,12 +129,6 @@ module.exports = [
     ]
   },
   {
-    "id": "phonegap-nfc.NFC",
-    "file": "plugins/phonegap-nfc/www/phonegap-nfc.js",
-    "pluginId": "phonegap-nfc",
-    "runs": true
-  },
-  {
     "id": "cordova-plugin-geolocation.geolocation",
     "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
     "pluginId": "cordova-plugin-geolocation",
@@ -183,6 +177,12 @@ module.exports = [
       "cordova.plugins.locationServices.geolocation",
       "plugin.locationServices.geolocation"
     ]
+  },
+  {
+    "id": "phonegap-nfc.NFC",
+    "file": "plugins/phonegap-nfc/www/phonegap-nfc.js",
+    "pluginId": "phonegap-nfc",
+    "runs": true
   }
 ];
 module.exports.metadata = 
@@ -195,9 +195,9 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova.plugins.diagnostic": "4.0.10",
-  "phonegap-nfc": "1.0.3",
   "cordova-plugin-geolocation": "4.0.1",
-  "cordova-plugin-locationservices": "2.1.0"
+  "cordova-plugin-locationservices": "2.1.0",
+  "phonegap-nfc": "1.0.3"
 };
 // BOTTOM OF METADATA
 });

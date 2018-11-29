@@ -28,13 +28,13 @@
     "cordova.plugins.diagnostic": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
-    "phonegap-nfc": {
-      "PACKAGE_NAME": "com.yancao.cc"
-    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
     "cordova-plugin-locationservices": {
+      "PACKAGE_NAME": "com.yancao.cc"
+    },
+    "phonegap-nfc": {
       "PACKAGE_NAME": "com.yancao.cc"
     }
   },

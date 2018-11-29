@@ -45,8 +45,8 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova.plugins.diagnostic" spec="^4.0.10" />
-    <plugin name="phonegap-nfc" spec="..\..\itcntg\phonegap-nfc-master" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-locationservices" spec="^2.1.0" />
+    <plugin name="phonegap-nfc" spec="..\..\itcntg\phonegap-nfc-master" />
     <engine name="android" spec="^7.1.2" />
 </widget>
