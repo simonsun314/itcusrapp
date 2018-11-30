@@ -214,10 +214,12 @@ $$('.load-home').on('click', function () {
 });
 //home page事件(测试按钮)，添加了loading反馈，之后跳转到resultInfo.html
 $$('.resultTrue').on('click', function () {
-    ViewToResultTure(dataTrue)
+    // ViewToResultTure(dataTrue)
+    // ViewToResultTureHome(dataTrue)
 });
 $$('.resultFalse').on('click',function () {
-    ViewToResultFalse(dataFalse)
+    // ViewToResultFalse(dataFalse)
+    // ViewToResultFalseHome(dataFalse)
 });
 $$('.nfsviews').on('click',function () {
     ViewTonfsViews()
@@ -245,7 +247,6 @@ myApp.onPageInit('resultTrue', function (page) {
     });
 
     $$('.home-click').on('click', function () {
-        //back to home
         mainView.router.load({
             url: 'index.html'
         })
@@ -298,15 +299,16 @@ var stopNFC = function(){
 
 //页面返回时，home page的回调函数
 myApp.onPageInit('home', function (page) {
-    $$('.resultTrue').on('click', function () {
-        ViewToResultTureHome(dataTrue)
-    });
-    $$('.resultFalse').on('click',function () {
-        ViewToResultFalseHome(dataFalse)
-    });
+    // $$('.resultTrue').on('click', function () {
+    //     ViewToResultTureHome(dataTrue)
+    // });
+    // $$('.resultFalse').on('click',function () {
+    //     ViewToResultFalseHome(dataFalse)
+    // });
     $$('.nfsviews').on('click',function () {
         ViewTonfsViews()
     });
+  
     
     // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
     //     // alert("unregister success\n");
@@ -386,6 +388,7 @@ myApp.onPageInit('nfsviews', function (page) {
     if(glb_initnfc==false){
         // setTimeout(startNFC, 500);
         glb_initnfc = true;
+        // nfc.initGPS();
         startNFC();
     }
     

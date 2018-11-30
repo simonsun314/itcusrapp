@@ -90,11 +90,13 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\simon\.gradle\c
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\300ea52b128066aa0cc4811e37cc89ff\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\300ea52b128066aa0cc4811e37cc89ff\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:147-173
 	android:label
-		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:114-146
 	android:hardwareAccelerated
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+	android:roundIcon
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
 	android:icon
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#com.yancao.cc.MainActivity
