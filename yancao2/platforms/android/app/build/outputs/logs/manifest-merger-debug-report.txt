@@ -92,11 +92,11 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\simon\.gradle\caches
 	android:supportsRtl
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:147-173
 	android:label
-		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:114-146
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:roundIcon
-		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:114-146
 	android:icon
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#com.yancao.cc.MainActivity

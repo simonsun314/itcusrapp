@@ -235,8 +235,11 @@ var LocationChksuccessCallback = function (authorized) {
 
   } else {
     //jump to permission setting page and wait for return
-    myApp.confirm("<font color=black size=4>请授予位置权限，对于帮助查询信息非常重要</font>", posOpenCBOK, posOpenCBCancel);
-  }
+      setTimeout(function () {
+        myApp.confirm("<font color=black size=4>请授予位置权限，对于帮助查询信息非常重要</font>", posOpenCBOK, posOpenCBCancel);
+ 
+        }, 4000);
+   }
 }
 
 /*check location permission fail just register NFC set address 0 0*/
@@ -264,7 +267,12 @@ var checkGeoPermission = function () {
 
 var checkGPSPermission = function () {
   //check permission
-  cordova.plugins.diagnostic.isLocationAuthorized(LocationChksuccessCallback, locChkerrorCallback);
+
+  // setTimeout(function () {
+    cordova.plugins.diagnostic.isLocationAuthorized(LocationChksuccessCallback, locChkerrorCallback);
+
+  // }, 4000);
+  // cordova.plugins.diagnostic.isLocationAuthorized(LocationChksuccessCallback, locChkerrorCallback);
 
 
 }
@@ -472,19 +480,36 @@ function getPos2() {
   navigator.geolocation.getCurrentPosition(onGeo2Success, onGeo2Error, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
 }
 
+
+
+
+var get2ndposCallbk = function(data){
+  myApp.alert("gps0"+data);
+}
+
+//data success string longtitude,latitude
+var get2ndposSuccess = function(data){
+  logMyFunc("gps2"+data);
+  var locdata = data.split(/[,]/);
+  tag_lat = parseFloat(locdata[1]);
+  tag_lon = parseFloat(locdata[0]);
+
+  createSession(itcidpara);
+}
+
+var get2ndposfail = function(data){
+  logMyFunc("gpserr"+data);
+  tag_lon = 0;
+  tag_lat = 0;
+  createSession(itcidpara);
+}
+
 /*start get pos and first time will check the permission request and check if will go on http request*/
 function getPosbeforeHttp() {
-
-  /*  $$(document).addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        myApp.alert("navigator.geolocation works well");
-    }
-    */
-  // myApp.alert(navigator.geolocation);
-  
-  // myApp.showPreloader();
-  navigator.geolocation.getCurrentPosition(onGeobeforeHttpSuccess, onGeobeforeHttpError, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
-}
+    nfc.initGPS();
+  // setTimeout(function () {
+    nfc.getPOS(get2ndposCallbk,get2ndposSuccess,get2ndposfail);
+ }
 
 var tag_date;
 
@@ -1573,9 +1598,13 @@ var nfcCallbk = function (nfcEvent) {
     logMyFunc("passprotstat " + tag.passprotstat);
     itcidpara = nfcEvent.tag.itcidval.toLowerCase();
   }
-  
-  // getPosbeforeHttp();
-  createSession(itcidpara);
+  // if((tag_lon==0)&&(tag_lat==0)){
+  //   getPosbeforeHttp();
+  // }else{
+  //   createSession(itcidpara);
+  // }
+  getPosbeforeHttp();
+
   //first create itc log 
 // {
 //   "ITCID": "12345ABC",
@@ -2337,6 +2366,7 @@ var checkNfcAuthor = function () {
   //     url: 'home.html'
   //   });
   // }, 2000);
+  registerNFC();
 
 }
 
@@ -2432,7 +2462,7 @@ var registerNFC = function () {
 
   nfc.addTagDiscoveredListener(nfcCallbk,
     function () { // success callback
-      logMyFunc("Waiting for tag");
+      // logMyFunc("Waiting for tag");
       // myApp.alert("Waiting for tag");
       //myApp.alert(nfcEvent);
       //alert(nfcEvent.tag.sig);
@@ -2442,8 +2472,12 @@ var registerNFC = function () {
     },
     function (error) { // error callback
       // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
-      myApp.alert("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
-      myApp.confirm("<font color=black size=4>NFC未打开，为保证程序能正常运行，请打开NFC</font>", nfcOpenCBOK, nfcOpenCBCancel);
+      // myApp.alert("TagNFC出错 " + JSON.stringify(error) + "请打开NFC");
+      // setTimeout(function () {
+      //   myApp.confirm("<font color=black size=4>NFC未打开，为保证程序能正常运行，请打开NFC</font>", nfcOpenCBOK, nfcOpenCBCancel);
+      
+      // }, 2000);
+      myApp.confirm("<font color=black size=4>为保证程序能正常运行，请打开NFC</font>", nfcOpenCBOK, nfcOpenCBCancel);
       // myApp.hidePreloader();
       // mainView.router.load({
       //   url: 'index.html'

@@ -228,6 +228,10 @@
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
     {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\675662356935853dd833ac4604c4536b\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
@@ -432,12 +436,20 @@
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
@@ -590,6 +602,10 @@
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_select_dialog_material.xml.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1152,6 +1168,10 @@
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\675662356935853dd833ac4604c4536b\\res\\layout\\notification_template_part_chronometer.xml"
     },
@@ -1230,6 +1250,10 @@
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -1428,6 +1452,10 @@
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\675662356935853dd833ac4604c4536b\\res\\drawable\\notification_bg_low.xml"
     },
     {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
@@ -1520,6 +1548,10 @@
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0286024ea8d79ae08110eb9d2130e6b2\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },
@@ -1566,6 +1598,10 @@
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
         "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -1630,6 +1666,10 @@
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
         "source": "C:\\Users\\simon\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\faac2ab909a7635edb4ef8a92bfb5914\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
