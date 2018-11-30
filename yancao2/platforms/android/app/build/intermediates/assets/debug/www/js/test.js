@@ -1598,6 +1598,7 @@ var nfcCallbk = function (nfcEvent) {
     logMyFunc("passprotstat " + tag.passprotstat);
     itcidpara = nfcEvent.tag.itcidval.toLowerCase();
   }
+  navigator.vibrate(200);
   // if((tag_lon==0)&&(tag_lat==0)){
   //   getPosbeforeHttp();
   // }else{

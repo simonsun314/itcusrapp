@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
+ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-location-16.0.0.aar\156aea3e8d67c4e3cd9eeda6708e0c6e\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\faac2ab909a7635edb4ef8a92bfb5914\AndroidManifest.xml:17:1-29:12
@@ -20,9 +20,9 @@ MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\simon\.gradle\
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\eb18329e008a96d3667c878f1548d659\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\675662356935853dd833ac4604c4536b\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\300ea52b128066aa0cc4811e37cc89ff\AndroidManifest.xml:17:1-30:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
 	package
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:2:102-125
 		INJECTED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml
@@ -213,6 +213,10 @@ ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\ap
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:24:55-79
 	android:name
 		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:24:19-54
+uses-permission#android.permission.VIBRATE
+ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:25:5-66
+	android:name
+		ADDED from D:\itctag\phonegap-nfc-master\itcuserapp\yancao2\platforms\android\app\src\main\AndroidManifest.xml:25:22-63
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\0286024ea8d79ae08110eb9d2130e6b2\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\simon\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\a1b92d7dd3162be78b5b1d321605803d\AndroidManifest.xml:26:9-28:38
