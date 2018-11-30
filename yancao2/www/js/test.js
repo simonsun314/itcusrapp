@@ -989,9 +989,9 @@ var clearSessionData = function(){
 
 var goIndexPage = function(){
 
-  mainView.router.load({
-    url: 'index.html'
-  });
+  // mainView.router.load({
+  //   url: 'index.html'
+  // });
   registerNFC();
 }
 
@@ -1979,10 +1979,13 @@ var readAuthCallbk = function (nfcEvent) {
     //back to index.htm
     logMyFunc("error occur");
     //nfc.removeTagListerner();
+    logMyFunc(newtag.errCode);
     if(newtag.errCode=="invalid pack"){
       do_autherr_proc(VRS_RPT_ERR.IVALID_PACK,"密码ACK出错");
-    }else{
+    }else if(newtag.errCode=="Transceive failed"){
       do_autherr_proc(VRS_RPT_ERR.IVALID_PASS,"密码出错");
+    }else{
+      goIndexPage();
     }
     
     //nfc.removeITCListerner();

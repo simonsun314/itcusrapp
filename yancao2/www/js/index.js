@@ -214,12 +214,10 @@ $$('.load-home').on('click', function () {
 });
 //home page事件(测试按钮)，添加了loading反馈，之后跳转到resultInfo.html
 $$('.resultTrue').on('click', function () {
-    // ViewToResultTure(dataTrue)
-    // ViewToResultTureHome(dataTrue)
+    ViewToResultTure(dataTrue)
 });
 $$('.resultFalse').on('click',function () {
-    // ViewToResultFalse(dataFalse)
-    ViewToResultFalseHome(dataFalse)
+    ViewToResultFalse(dataFalse)
 });
 $$('.nfsviews').on('click',function () {
     ViewTonfsViews()
