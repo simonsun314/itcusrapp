@@ -236,7 +236,7 @@ var LocationChksuccessCallback = function (authorized) {
   } else {
     //jump to permission setting page and wait for return
       setTimeout(function () {
-        myApp.confirm("<font color=black size=4>请授予位置权限，对于帮助查询信息非常重要</font>", posOpenCBOK, posOpenCBCancel);
+        myApp.confirm("<font color=black size=4>请授予位置和NFC权限</font>", posOpenCBOK, posOpenCBCancel);
  
         }, 4000);
    }
@@ -480,7 +480,27 @@ function getPos2() {
   navigator.geolocation.getCurrentPosition(onGeo2Success, onGeo2Error, { maximumAge: 1000, timeout: 4000, enableHighAccuracy: true });
 }
 
+var get3rdposCallbk = function(data){
+  myApp.alert("gps0"+data);
+}
+var get3rdposSuccess = function(data){
+  logMyFunc("gps2"+data);
+  var locdata = data.split(/[,]/);
+  tag_lat = parseFloat(locdata[1]);
+  tag_lon = parseFloat(locdata[0]);
 
+  createSession(itcidpara);
+}
+
+
+var get3rdposfail = function(data){
+  logMyFunc("gpserr"+data);
+  
+    tag_lon = 0;
+    tag_lat = 0;
+    createSession(itcidpara);
+  
+}
 
 
 var get2ndposCallbk = function(data){
@@ -497,11 +517,63 @@ var get2ndposSuccess = function(data){
   createSession(itcidpara);
 }
 
+
+
+// position service setting refuse open
+var positionOpenCBCancel = function () {
+  //getPos();
+  logMyFunc("用户拒绝打开Location配置");
+  //myApp.alert("请手动设置NFC打开");
+  showhint("请手动设置位置信息服务打开");
+  exitMyApp();
+
+}
+
+/*position service setting interface to set nfc open*/
+var positionOpenCBOK = function () {
+  openPostionSetting();
+}
+
+
+/*jump to location setting*/
+var openPostionSetting = function () {
+  if (window.cordova && window.cordova.plugins.settings) {
+    logMyFunc('openSettingsTest is active');
+    window.cordova.plugins.settings.open("location",
+      function () {
+        logMyFunc('opened settings');
+        //set back here
+        //getPos();
+        setTimeout(function () {
+          nfc.getPOS(get3rdposCallbk,get3rdposSuccess,get3rdposfail);
+        }, 3000);
+
+      },
+      function () {
+        logMyFunc('failed to open settings');
+        //myApp.alert("程序打开设置页面出错，请手动设置NFC打开");
+        showhint("程序打开设置页面出错，请手动设置位置服务打开");
+        //getPos();
+        exitMyApp();
+      });
+  } else {
+    logMyFunc('openSettingsTest is not active!');
+    exitMyApp();
+  }
+}
+
+var justonceRquestPosService = false;
+
 var get2ndposfail = function(data){
   logMyFunc("gpserr"+data);
-  tag_lon = 0;
-  tag_lat = 0;
-  createSession(itcidpara);
+  if(justonceRquestPosService==false){
+    justonceRquestPosService = true;
+    myApp.confirm("<font color=black size=4>请打开位置信息服务</font>", positionOpenCBOK, positionOpenCBCancel);
+  }else{
+    tag_lon = 0;
+    tag_lat = 0;
+    createSession(itcidpara);
+  }
 }
 
 /*start get pos and first time will check the permission request and check if will go on http request*/

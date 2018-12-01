@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yancao.cc"
     android:hardwareAccelerated="true"
-    android:versionCode="10304"
-    android:versionName="1.3.4" >
+    android:versionCode="10305"
+    android:versionName="1.3.5" >
 
     <uses-sdk
         android:minSdkVersion="19"
