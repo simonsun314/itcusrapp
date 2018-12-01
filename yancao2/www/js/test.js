@@ -1643,13 +1643,19 @@ var readsigfunc = function(passwd){
 // do get auth password
 // and then do nfc read with auth
 var itcidpara = "";
+var nfcnotrsp = false;
 var nfcCallbk = function (nfcEvent) {
-  nfc.removeTagDiscoveredListener(nfcCallbk, function () {
-    // alert("unregister success\n");
-  },
-    function (error) {
-      // alert("unregister failure \n"+error);
-    });
+  // nfc.removeTagDiscoveredListener(nfcCallbk, function () {
+  //   // alert("unregister success\n");
+  // },
+  //   function (error) {
+  //     // alert("unregister failure \n"+error);
+  //   });
+  
+  if(nfcnotrsp==true){
+    return;
+  }
+  nfcnotrsp = true;
     itcidpara = "";
   // if(nfcEvent==100)return;
   tag = nfcEvent.tag;
@@ -2533,7 +2539,7 @@ var registerNfcMime = function () {
 var registerNFC = function () {
    logMyFunc("register NFC");
   // myApp.alert("register NFC");
-
+  nfcnotrsp = false;
   nfc.addTagDiscoveredListener(nfcCallbk,
     function () { // success callback
       // logMyFunc("Waiting for tag");
