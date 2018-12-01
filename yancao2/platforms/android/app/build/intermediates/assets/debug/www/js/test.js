@@ -484,6 +484,7 @@ var get3rdposCallbk = function(data){
   myApp.alert("gps0"+data);
 }
 var get3rdposSuccess = function(data){
+  // logMyFunc("gps2"+data);
   logMyFunc("gps2"+data);
   var locdata = data.split(/[,]/);
   tag_lat = parseFloat(locdata[1]);
