@@ -55,7 +55,7 @@
       <file leaf-file-name="CallbackContext.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CallbackContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="2451">
               <caret line="129" column="39" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
             </state>
           </provider>
@@ -64,7 +64,7 @@
       <file leaf-file-name="CordovaWebView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaWebView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2033">
+            <state relative-caret-position="2432">
               <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
             </state>
           </provider>
@@ -82,7 +82,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="130">
               <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
@@ -123,8 +123,8 @@
       <file leaf-file-name="NTag21x.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="2052">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
@@ -3104,19 +3104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="android" type="b2602c69:ProjectViewProjectNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3133,6 +3120,19 @@
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="android" type="b2602c69:ProjectViewProjectNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -3314,28 +3314,28 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" sideWeight="0.5093333" side_tool="true" weight="0.24962178" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5015129" side_tool="true" weight="0.39932886" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32885906" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32885906" />
-      <window_info anchor="bottom" id="Logcat" order="10" weight="0.37080538" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.37080538" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49066666" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49066666" visible="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.32885906" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" weight="0.39932886" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -3353,7 +3353,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/chariotsolutions/nfc/plugin/NfcPlugin.java</url>
-          <line>1468</line>
+          <line>1488</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -3383,7 +3383,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java</url>
-          <line>141</line>
+          <line>142</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
@@ -3628,8 +3628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nbs/itc/ndk/NTag21x.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="2052">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
     </entry>
@@ -3648,7 +3648,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CordovaWebView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
+        <state relative-caret-position="2432">
           <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
         </state>
       </provider>
@@ -3669,7 +3669,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CordovaLib/src/org/apache/cordova/CallbackContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="2451">
           <caret line="129" column="39" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
         </state>
       </provider>
@@ -3685,10 +3685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10640">
           <caret line="605" column="18" selection-start-line="605" selection-start-column="18" selection-end-line="605" selection-end-column="18" />
-          <folding>
-            <element signature="e#22099#22100#0" expanded="true" />
-            <element signature="e#22132#22133#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3714,7 +3710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="130">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>

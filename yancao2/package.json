@@ -34,8 +34,8 @@
       "cordova.plugins.diagnostic": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-locationservices": {},
-      "phonegap-nfc": {},
-      "cordova-plugin-vibration": {}
+      "cordova-plugin-vibration": {},
+      "phonegap-nfc": {}
     },
     "platforms": [
       "android"

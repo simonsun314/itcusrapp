@@ -48,7 +48,7 @@
     <plugin name="cordova.plugins.diagnostic" spec="^4.0.10" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-locationservices" spec="^2.1.0" />
-    <plugin name="phonegap-nfc" spec="..\..\itcntg\phonegap-nfc-master" />
     <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
+    <plugin name="phonegap-nfc" spec="..\..\itcntg\phonegap-nfc-master" />
     <engine name="android" spec="^7.1.2" />
 </widget>

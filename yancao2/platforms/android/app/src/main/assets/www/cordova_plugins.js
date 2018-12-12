@@ -197,8 +197,8 @@ module.exports.metadata =
   "cordova.plugins.diagnostic": "4.0.10",
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-locationservices": "2.1.0",
-  "phonegap-nfc": "1.0.3",
-  "cordova-plugin-vibration": "3.1.0"
+  "cordova-plugin-vibration": "3.1.0",
+  "phonegap-nfc": "1.0.3"
 };
 // BOTTOM OF METADATA
 });

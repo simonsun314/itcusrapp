@@ -113,15 +113,15 @@
               "count": 1
             },
             {
+              "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+              "count": 1
+            },
+            {
               "xml": "<uses-permission android:name=\"android.permission.NFC\" />",
               "count": 1
             },
             {
               "xml": "<uses-feature android:name=\"android.hardware.nfc\" android:required=\"false\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
               "count": 1
             }
           ],
@@ -207,10 +207,10 @@
     "cordova-plugin-locationservices": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
-    "phonegap-nfc": {
+    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
-    "cordova-plugin-vibration": {
+    "phonegap-nfc": {
       "PACKAGE_NAME": "com.yancao.cc"
     }
   },
@@ -411,7 +411,7 @@
     "cordova.plugins.diagnostic": "4.0.10",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-locationservices": "2.1.0",
-    "phonegap-nfc": "1.0.3",
-    "cordova-plugin-vibration": "3.1.0"
+    "cordova-plugin-vibration": "3.1.0",
+    "phonegap-nfc": "1.0.3"
   }
 }

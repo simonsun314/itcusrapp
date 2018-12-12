@@ -71,18 +71,18 @@
     "is_top_level": true,
     "variables": {}
   },
-  "phonegap-nfc": {
-    "source": {
-      "type": "local",
-      "path": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\node_modules\\phonegap-nfc"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-vibration": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-vibration"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-nfc": {
+    "source": {
+      "type": "local",
+      "path": "D:\\itctag\\phonegap-nfc-master\\itcuserapp\\yancao2\\node_modules\\phonegap-nfc"
     },
     "is_top_level": true,
     "variables": {}

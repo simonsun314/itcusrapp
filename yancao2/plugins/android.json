@@ -34,10 +34,10 @@
     "cordova-plugin-locationservices": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
-    "phonegap-nfc": {
+    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.yancao.cc"
     },
-    "cordova-plugin-vibration": {
+    "phonegap-nfc": {
       "PACKAGE_NAME": "com.yancao.cc"
     }
   },
