@@ -1095,7 +1095,7 @@ var goIndexPage = function(){
 
 var session_begtime;
 var session_endtime;
-var urlVerifyServer = "http://47.101.167.84:3000";
+var urlVerifyServer = "http://t2.itc-demo.xyz:3000";//"http://47.101.167.84:3000";
 var tokenval = "?token=34a51378e43dca83";
 
 //create record for this time inquery to server
@@ -1268,6 +1268,9 @@ var createSession = function (tag_itcid) {
                 Longitude: tag_lon,
                 Latitude: tag_lat,
             },
+        },
+        Device: {
+          OS: "Android"
         },
         // 2: Unknown ITCID, 3: Invalid Password,
         // 4. Invalid PACK
